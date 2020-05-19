@@ -1,0 +1,15 @@
+D:\Шаг\WPF\Classwork20200518_Calculator\obj\Debug\Classwork20200518_Calculator.csprojAssemblyReference.cache
+D:\Шаг\WPF\Classwork20200518_Calculator\obj\Debug\App.g.cs
+D:\Шаг\WPF\Classwork20200518_Calculator\obj\Debug\Classwork20200518_Calculator_MarkupCompile.cache
+D:\Шаг\WPF\Classwork20200518_Calculator\bin\Debug\Classwork20200518_Calculator.exe.config
+D:\Шаг\WPF\Classwork20200518_Calculator\bin\Debug\Classwork20200518_Calculator.exe
+D:\Шаг\WPF\Classwork20200518_Calculator\bin\Debug\Classwork20200518_Calculator.pdb
+D:\Шаг\WPF\Classwork20200518_Calculator\obj\Debug\MainWindow.g.cs
+D:\Шаг\WPF\Classwork20200518_Calculator\obj\Debug\Classwork20200518_Calculator_MarkupCompile.lref
+D:\Шаг\WPF\Classwork20200518_Calculator\obj\Debug\MainWindow.baml
+D:\Шаг\WPF\Classwork20200518_Calculator\obj\Debug\Classwork20200518_Calculator.g.resources
+D:\Шаг\WPF\Classwork20200518_Calculator\obj\Debug\Classwork20200518_Calculator.Properties.Resources.resources
+D:\Шаг\WPF\Classwork20200518_Calculator\obj\Debug\Classwork20200518_Calculator.csproj.GenerateResource.cache
+D:\Шаг\WPF\Classwork20200518_Calculator\obj\Debug\Classwork20200518_Calculator.csproj.CoreCompileInputs.cache
+D:\Шаг\WPF\Classwork20200518_Calculator\obj\Debug\Classwork20200518_Calculator.exe
+D:\Шаг\WPF\Classwork20200518_Calculator\obj\Debug\Classwork20200518_Calculator.pdb

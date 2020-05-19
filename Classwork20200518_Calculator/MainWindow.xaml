@@ -1,0 +1,64 @@
+﻿<Window x:Class="Classwork20200518_Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Classwork20200518_Calculator"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="430" Width="280
+        ">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="66*"/>
+            <RowDefinition Height="63*"/>
+            <RowDefinition Height="64*"/>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="57*"/>
+            <RowDefinition Height="57*"/>
+        </Grid.RowDefinitions>
+
+        <!--  Number buttons -->
+        <Button x:Name="Btn7" Grid.Row ="3" Grid.Column="0" Click="Btn1_Click">7</Button>
+        <Button x:Name="Btn8" Grid.Row ="3" Grid.Column="1" Click="Btn1_Click">8</Button>
+        <Button x:Name="Btn9" Grid.Row ="3" Grid.Column="2" Click="Btn1_Click">9</Button>
+        <Button x:Name="Btn4" Grid.Row ="4" Grid.Column="0" Click="Btn1_Click">4</Button>
+        <Button x:Name="Btn5" Grid.Row ="4" Grid.Column="1" Click="Btn1_Click">5</Button>
+        <Button x:Name="Btn6" Grid.Row ="4" Grid.Column="2" Click="Btn1_Click">6</Button>
+        <Button x:Name="Btn1" Grid.Row ="5" Grid.Column="0" Click="Btn1_Click">1</Button>
+        <Button x:Name="Btn2" Grid.Row ="5" Grid.Column="1" Click="Btn1_Click">2</Button>
+        <Button x:Name="Btn3" Grid.Row ="5" Grid.Column="2" Click="Btn1_Click">3</Button>
+        <Button x:Name="BtnPoint" Grid.Row ="6" Grid.Column="0" Click="Btn1_Click">.</Button>
+        <Button x:Name="Btn0" Grid.Row ="6" Grid.Column="1" Click="Btn1_Click">0</Button>
+        <Button x:Name="BtnEquel" Grid.Row ="6" Grid.Column="2" Grid.ColumnSpan="2" Click="BtnEquel_Click">=</Button>
+
+        <!--  Maths buttons -->
+        <Button x:Name="BtnMt"   Grid.Row ="3" Grid.Column="3" Click="BtnDiv_Click">*</Button>
+        <Button x:Name="BtnASub" Grid.Row ="4" Grid.Column="3" Click="BtnDiv_Click">-</Button>
+        <Button x:Name="BtnAdd"  Grid.Row ="5" Grid.Column="3" Click="BtnDiv_Click">+</Button>
+        <Button x:Name="BtnDiv"  Grid.Row ="2" Grid.Column="3" Click="BtnDiv_Click">/</Button>
+
+        <!-- Cleare buttons -->
+        <Button x:Name="BtnBack" Grid.Row ="2" Grid.Column="2" Content="&lt;" Click="BtnBack_Click"></Button>
+        <Button x:Name="BtnC" Grid.Row ="2" Grid.Column="1" Click="BtnC_Click">+/-</Button>
+        <Button x:Name="BtnCE" Grid.Row ="2" Grid.Column="0" Click="BtnCE_Click">CE</Button>
+
+        <!--Display TextBox-->
+        <TextBox x:Name="textBox1" IsReadOnly="True" Grid.Row="1" Grid.Column="0"
+                 Grid.ColumnSpan="4"
+                 TextAlignment="Right" VerticalAlignment="Bottom"
+                 FontSize="30" BorderThickness="0" Height="40">0</TextBox>
+        <!-- Display Label -->
+        <Label x:Name="label1" Grid.Row="0" Grid.Column="0"
+                Background="Gray" Foreground="White"
+                 Grid.ColumnSpan="4" VerticalAlignment="Top"
+                 FontSize="15" BorderThickness="0" Height="40" Margin="2"></Label>
+
+    </Grid>
+</Window>
