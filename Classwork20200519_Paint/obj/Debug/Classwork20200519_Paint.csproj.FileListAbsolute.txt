@@ -1,0 +1,15 @@
+D:\Шаг\WPF\Classwork20200519_Paint\obj\Debug\Classwork20200519_Paint.csprojAssemblyReference.cache
+D:\Шаг\WPF\Classwork20200519_Paint\obj\Debug\MainWindow.g.cs
+D:\Шаг\WPF\Classwork20200519_Paint\obj\Debug\App.g.cs
+D:\Шаг\WPF\Classwork20200519_Paint\obj\Debug\Classwork20200519_Paint_MarkupCompile.cache
+D:\Шаг\WPF\Classwork20200519_Paint\obj\Debug\Classwork20200519_Paint_MarkupCompile.lref
+D:\Шаг\WPF\Classwork20200519_Paint\bin\Debug\Classwork20200519_Paint.exe.config
+D:\Шаг\WPF\Classwork20200519_Paint\bin\Debug\Classwork20200519_Paint.exe
+D:\Шаг\WPF\Classwork20200519_Paint\bin\Debug\Classwork20200519_Paint.pdb
+D:\Шаг\WPF\Classwork20200519_Paint\obj\Debug\MainWindow.baml
+D:\Шаг\WPF\Classwork20200519_Paint\obj\Debug\Classwork20200519_Paint.g.resources
+D:\Шаг\WPF\Classwork20200519_Paint\obj\Debug\Classwork20200519_Paint.Properties.Resources.resources
+D:\Шаг\WPF\Classwork20200519_Paint\obj\Debug\Classwork20200519_Paint.csproj.GenerateResource.cache
+D:\Шаг\WPF\Classwork20200519_Paint\obj\Debug\Classwork20200519_Paint.csproj.CoreCompileInputs.cache
+D:\Шаг\WPF\Classwork20200519_Paint\obj\Debug\Classwork20200519_Paint.exe
+D:\Шаг\WPF\Classwork20200519_Paint\obj\Debug\Classwork20200519_Paint.pdb

@@ -1,0 +1,15 @@
+D:\Шаг\WPF\Classwork20200520_Window\obj\Debug\Classwork20200520_Window.csprojAssemblyReference.cache
+D:\Шаг\WPF\Classwork20200520_Window\obj\Debug\App.g.cs
+D:\Шаг\WPF\Classwork20200520_Window\obj\Debug\Classwork20200520_Window_MarkupCompile.cache
+D:\Шаг\WPF\Classwork20200520_Window\obj\Debug\MainWindow.g.cs
+D:\Шаг\WPF\Classwork20200520_Window\obj\Debug\Classwork20200520_Window_MarkupCompile.lref
+D:\Шаг\WPF\Classwork20200520_Window\bin\Debug\Classwork20200520_Window.exe.config
+D:\Шаг\WPF\Classwork20200520_Window\bin\Debug\Classwork20200520_Window.exe
+D:\Шаг\WPF\Classwork20200520_Window\bin\Debug\Classwork20200520_Window.pdb
+D:\Шаг\WPF\Classwork20200520_Window\obj\Debug\MainWindow.baml
+D:\Шаг\WPF\Classwork20200520_Window\obj\Debug\Classwork20200520_Window.g.resources
+D:\Шаг\WPF\Classwork20200520_Window\obj\Debug\Classwork20200520_Window.Properties.Resources.resources
+D:\Шаг\WPF\Classwork20200520_Window\obj\Debug\Classwork20200520_Window.csproj.GenerateResource.cache
+D:\Шаг\WPF\Classwork20200520_Window\obj\Debug\Classwork20200520_Window.csproj.CoreCompileInputs.cache
+D:\Шаг\WPF\Classwork20200520_Window\obj\Debug\Classwork20200520_Window.exe
+D:\Шаг\WPF\Classwork20200520_Window\obj\Debug\Classwork20200520_Window.pdb
