@@ -1,0 +1,15 @@
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\bin\Debug\Classwork20200521_MediaPlayer.exe.config
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\bin\Debug\Classwork20200521_MediaPlayer.exe
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\bin\Debug\Classwork20200521_MediaPlayer.pdb
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\obj\Debug\Classwork20200521_MediaPlayer.csprojAssemblyReference.cache
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\obj\Debug\MainWindow.g.cs
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\obj\Debug\App.g.cs
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\obj\Debug\Classwork20200521_MediaPlayer_MarkupCompile.cache
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\obj\Debug\Classwork20200521_MediaPlayer_MarkupCompile.lref
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\obj\Debug\MainWindow.baml
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\obj\Debug\Classwork20200521_MediaPlayer.g.resources
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\obj\Debug\Classwork20200521_MediaPlayer.Properties.Resources.resources
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\obj\Debug\Classwork20200521_MediaPlayer.csproj.GenerateResource.cache
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\obj\Debug\Classwork20200521_MediaPlayer.csproj.CoreCompileInputs.cache
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\obj\Debug\Classwork20200521_MediaPlayer.exe
+D:\Шаг\WPF\Classwork20200521_MediaPlayer\obj\Debug\Classwork20200521_MediaPlayer.pdb

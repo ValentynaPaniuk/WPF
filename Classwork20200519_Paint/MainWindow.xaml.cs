@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -16,6 +17,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
+
+/*Paint:
+Режими малювання RadioButtons
+combobox для вибору ширини ліній
+combobox для вибору кольору
+Кнопка "Очистити все"
+кнопки зберегти\
+відкрити - реалізація за допомогою діалогових вікон*/
+
 namespace Classwork20200519_Paint
 {
     /// <summary>
@@ -23,17 +34,32 @@ namespace Classwork20200519_Paint
     /// </summary>
     public partial class MainWindow : Window
     {
+       String[] colors = typeof(System.Drawing.Color).GetProperties().Select(x => x.Name).ToArray();
         public MainWindow()
         {
             InitializeComponent();
             ink.DefaultDrawingAttributes.Color = Colors.Red;
             ink.DefaultDrawingAttributes.Width = 10;
+            ink.DefaultDrawingAttributes.Height = 10;
 
-            
-          
+            //Додаємо в ComboBox Size
+            for (int i = 8; i < 72; i += 2) { cbSize.Items.Add(i); }
+            cbSize.SelectedIndex = new Random().Next(0, cbSize.Items.Count);
+
+            //  //Додаємо в ComboBox Colors
+            for (int i = 0; i < colors.Length; i++)
+            {
+                cbColor.Items.Add(colors[i]);
+            }
+            for (int i = 0; i < 9; i++)
+            {
+                cbColor.Items.RemoveAt(cbColor.Items.Count - 1);
+            }
+            cbColor.Items.RemoveAt(0);
+            cbColor.SelectedIndex = new Random().Next(0, cbColor.Items.Count);
+
 
         }
-
         //Видалення рядком
         private void eraseByStrokeEditingMode_Click(object sender, RoutedEventArgs e)
         {
@@ -56,30 +82,24 @@ namespace Classwork20200519_Paint
             ink.EditingMode = InkCanvasEditingMode.Ink;
         }
 
-        //Зміна кольору 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            string color = (cbColor.SelectedItem as Label).Content.ToString();
-            
-            ink.DefaultDrawingAttributes.Color = (Color)ColorConverter.ConvertFromString(color);
-        }
+     
+       
+
         //Збереження малюнку
         private void save(object sender, RoutedEventArgs e)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
             saveFileDialog1.Filter = "str files|*.str";
-            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.OverwritePrompt = true;
+            saveFileDialog1.FileName = "Picture";
             saveFileDialog1.RestoreDirectory = true;
 
             if (saveFileDialog1.ShowDialog() == true)
             {
-                ink.Strokes.Save(new FileStream("1.str", FileMode.Create));
+                ink.Strokes.Save(new FileStream(saveFileDialog1.FileName, FileMode.Create));
             }
-            else
-            {
-                MessageBox.Show("!!!!!!!!!");
-            }
+          
         }
 
         //Відкриття малюнку
@@ -87,32 +107,54 @@ namespace Classwork20200519_Paint
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
             {
-                InitialDirectory = @"D:\",
+                //InitialDirectory = @"D:\",
                 Title = "Browse Text Files",
-
-                CheckFileExists = true,
-                CheckPathExists = true,
-
-                DefaultExt = "txt",
-                Filter = "txt files (*.txt)|*.txt|STR-files|*.str",
-                FilterIndex = 2,
+                //CheckFileExists = true,
+               // CheckPathExists = true,
+               // DefaultExt = "str",
+                Filter = "STR-files|*.str",
+               // FilterIndex = 2,
                 RestoreDirectory = true,
-
                 ReadOnlyChecked = true,
-                ShowReadOnly = true
+                ShowReadOnly = true,
+                FileName = "Type name here"
             };
 
             if (openFileDialog1.ShowDialog() == true)
             {
-                StrokeCollection strokes = new StrokeCollection(new FileStream("1.str", FileMode.Open));
+                StrokeCollection strokes = new StrokeCollection(new FileStream(openFileDialog1.FileName, FileMode.Open));
                 ink.Strokes = strokes;
             }
-            else
-            {
-                MessageBox.Show("???????");
-            }
+           
         }
 
-       
+       //Зміна розміру шрифта
+        private void CbSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var Size = Convert.ToDouble(cbSize.SelectedItem);
+            ink.DefaultDrawingAttributes.Width = ink.DefaultDrawingAttributes.Height = Size;
+        }
+
+        //Зміна кольору
+        private void CbColor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+            string color = cbColor.SelectedItem.ToString();
+            ink.DefaultDrawingAttributes.Color = (System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString(color);
+
+        }
+
+        //Очистити все
+        private void Clear(object sender, RoutedEventArgs e)
+        {
+            ink.Children.Clear();
+            //cbColor.SelectedItem = ink.DefaultDrawingAttributes.Color.ToString();
+            //ink.DefaultDrawingAttributes.Color = Colors.Black;
+            //ink.Background = System.Windows.Media.Brushes.White;
+            ink.Strokes.Clear();
+          
+            
+
+        }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Classwork20200519_Paint"
         mc:Ignorable="d"
-       Title="MainWindow" Height="450" Width="800">
+       Title="My Paint" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="5*"/>
@@ -30,19 +30,58 @@
 
             <Border Background="LightBlue" BorderBrush="Black" BorderThickness="2"  Margin="2,2" CornerRadius="5" Width="70">
                 <StackPanel>
-                    <Button Click="open">Open</Button>
-                    <Button Click="save">Save</Button>
+                    <Button Background="LightBlue" 
+                            BorderBrush="Transparent" 
+                            Click="open">Open</Button>
+                  
                 </StackPanel>
             </Border>
-           
-            <ComboBox Name="cbColor" Width="100" SelectionChanged="ComboBox_SelectionChanged" Margin="2,2,2,2">
-                <!--<StackPanel Orientation="Horizontal">-->
-                <!--<Ellipse Fill="Green" Width="20" Height="20"/>-->
-                <Label>Green</Label>
-                <!--</StackPanel>-->
-                <Label>Blue</Label>
-            </ComboBox>
+            <Border Background="LightBlue" BorderBrush="Black" BorderThickness="2"  Margin="2,2" CornerRadius="5" Width="70">
+                <StackPanel>
+                    <Button Background="LightBlue" 
+                            BorderBrush="Transparent" 
+                            Click="save">Save</Button>
+                </StackPanel>
+            </Border>
+
+            <Border Background="LightBlue" BorderBrush="Black" BorderThickness="2"  Margin="2,2" CornerRadius="5" Width="70">
+                <StackPanel>
+                    <Button Background="LightBlue" 
+                            BorderBrush="Transparent" 
+                            Click="Clear">Clear</Button>
+                </StackPanel>
+            </Border>
+
+            <Border Background="LightBlue" BorderBrush="Black" BorderThickness="2"  Margin="2,2" CornerRadius="5" >
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Color" VerticalAlignment="Center"/>
+                    <ComboBox Name="cbColor" Width="100" 
+                      SelectionChanged="CbColor_SelectionChanged" 
+                      Margin="2,2,2,2">
+                        <!--<StackPanel Orientation="Horizontal">-->
+                        <!--<Ellipse Fill="Green" Width="20" Height="20"/>-->
+                        <!--<Label>Green</Label>-->
+                        <!--</StackPanel>-->
+                        <!--<Label>Blue</Label>-->
+                    </ComboBox>
+                </StackPanel>
+            </Border>
+
+            <Border Background="LightBlue" BorderBrush="Black" BorderThickness="2"  Margin="2,2" CornerRadius="5" >
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Size" VerticalAlignment="Center"/>
+                    <ComboBox Name="cbSize" Width="100" 
+                      SelectionChanged="CbSize_SelectionChanged" 
+                      Margin="2,2,2,2">
+                        <!--<StackPanel Orientation="Horizontal">-->
+                        <!--<Ellipse Fill="Green" Width="20" Height="20"/>-->
+                        <!--<Label>Green</Label>-->
+                        <!--</StackPanel>-->
+                        <!--<Label>Blue</Label>-->
+                    </ComboBox>
+                </StackPanel>
+            </Border>
         </WrapPanel>
-        <InkCanvas Grid.Row="1" Name="ink" Margin="0,0,-0.4,0" Grid.RowSpan="2"></InkCanvas>
+        <InkCanvas Grid.Row="1" Name="ink" Margin="0,0,0,0" Grid.RowSpan="2"></InkCanvas>
     </Grid>
 </Window>
