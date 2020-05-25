@@ -5,59 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Classwork20200521_MediaPlayer"
         mc:Ignorable="d"
-        Title="MediaPlayer" Height="450" Width="870">
-    <Grid Height="420" Width="870">
-        <Grid Background="Black" Grid.ColumnSpan="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="274*"></RowDefinition>
-                <RowDefinition Height="62*"></RowDefinition>
-                <RowDefinition Height="53*"></RowDefinition>
-            </Grid.RowDefinitions>
+        Title="MediaPlayer" Height="720" Width="870">
 
-            <!--Mediaelement-->
-            <MediaElement x:Name="myMediaElement"
+    <Grid x:Name="grid1" Background="Black" Grid.ColumnSpan="2" Height="690" Width="850">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="305*"></RowDefinition>
+            <RowDefinition Height="69*"></RowDefinition>
+            <RowDefinition Height="60*"></RowDefinition>
+            <RowDefinition Height="100*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--Mediaelement-->
+        <MediaElement x:Name="myMediaElement"
                           LoadedBehavior="Manual"
-                          UnloadedBehavior="Manual"
-                          Grid.ColumnSpan="3" MediaOpened="MyMediaElement_MediaOpened" Margin="0,0,0,33" Grid.RowSpan="2"/>
+                          UnloadedBehavior="Manual" MediaOpened="MyMediaElement_MediaOpened" Margin="0,0,0,33" Grid.RowSpan="2"
+                      
+    
+                      
+                      />
 
-            <!--Slider для прокрутки-->
-            <StackPanel Grid.Row="1"  Orientation="Horizontal" Grid.ColumnSpan="3" >
-                <TextBox x:Name="textBox1"
+        <!--Slider для прокрутки-->
+        <StackPanel Grid.Row="1"  Orientation="Horizontal" >
+            <TextBox x:Name="textBox1"
                          BorderBrush="Black"
                          Foreground="White"
                          Background="Black"
                          Grid.Column="0"
                          VerticalAlignment="Bottom">
-                </TextBox>
-                <Slider x:Name="SlTime"
-                        Margin="5,46,5,10" 
+            </TextBox>
+            <Slider x:Name="SlTime"
+                        Margin="65,56,5,-3" 
                         SmallChange="0.1" 
                         LargeChange="0.2" 
-                        Minimum="0" 
-                        Height="36" Width="844" 
-                        LostMouseCapture="SlTime_LostMouseCapture" 
+                        Height="36" Width="684" 
+                        LostMouseCapture="SlTime_LostMouseCapture"
+                 
                         />
-            </StackPanel>
+        </StackPanel>
 
-            <!--Panel with buttons-->
-            <WrapPanel Grid.Row="2" >
-                <StackPanel Orientation="Horizontal" 
-                            Background="Black" 
+        <!--Panel with buttons-->
+        <WrapPanel Grid.Row="2" Margin="10,10,10,10">
+            <StackPanel Orientation="Horizontal" 
+                            Background="Black"
                             HorizontalAlignment="Right" 
                             Margin="0,0,20,0" 
                             Width="466" 
                          >
-                    <Expander Margin="10" Foreground="White" Background="Black" Collapsed="Expander_Collapsed">
-                        <Expander.ToolTip>
-                            <Label Content="Add new music or video"/>
-                        </Expander.ToolTip>
-                        <ListBox x:Name="listBox1">
 
-
-                        </ListBox>
-                    </Expander>
-
-                    <Button x:Name="openSoundButton"
+                <Button x:Name="openSoundButton"
                     BorderBrush="White"
                     Foreground="White"
                     Background="Black"           
@@ -66,18 +61,18 @@
                     Content="Open"
                     Margin="10"
                     Click="openSoundButton_Click">
-                        <!--ToolTip-->
-                        <Button.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock>
+                    <!--ToolTip-->
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock>
                                         <Label Content="Open"/>
-                                    </TextBlock>
-                                </StackPanel>
-                            </ToolTip>
-                        </Button.ToolTip>
-                    </Button>
-                    <Button x:Name="playSoundButton"
+                                </TextBlock>
+                            </StackPanel>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="playSoundButton"
                     BorderBrush="White"
                     Foreground="White"
                     Background="Black"
@@ -86,17 +81,17 @@
                     Content="Play"
                     Margin="10"
                     Click="playSoundButton_Click">
-                        <Button.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock>
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock>
                                          <Label Content="Play"/>
-                                    </TextBlock>
-                                </StackPanel>
-                            </ToolTip>
-                        </Button.ToolTip>
-                    </Button>
-                    <Button x:Name="stopSoundButton"
+                                </TextBlock>
+                            </StackPanel>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="stopSoundButton"
                     BorderBrush="White"
                     Foreground="White"
                     Background="Black"
@@ -105,17 +100,17 @@
                     Content="Stop"
                     Margin="10"
                     Click="stopSoundButton_Click">
-                        <Button.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock>
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock>
                                        <Label Content="Stop"/>
-                                    </TextBlock>
-                                </StackPanel>
-                            </ToolTip>
-                        </Button.ToolTip>
-                    </Button>
-                    <Button x:Name="plusSoundButton"
+                                </TextBlock>
+                            </StackPanel>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="plusSoundButton"
                     BorderBrush="White"
                     Foreground="White"
                     Background="Black"
@@ -124,17 +119,17 @@
                     Content="+"
                     Margin="10"
                     Click="plusSoundButton_Click">
-                        <Button.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock>
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock>
                                        <Label Content="+"/>
-                                    </TextBlock>
-                                </StackPanel>
-                            </ToolTip>
-                        </Button.ToolTip>
-                    </Button>
-                    <Button x:Name="minusSoundButton"
+                                </TextBlock>
+                            </StackPanel>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="minusSoundButton"
                     BorderBrush="White"
                     Foreground="White"
                     Background="Black"
@@ -143,17 +138,17 @@
                     Content="-"
                     Margin="10"
                     Click="minusSoundButton_Click">
-                        <Button.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock>
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock>
                                       <Label Content="-"/>
-                                    </TextBlock>
-                                </StackPanel>
-                            </ToolTip>
-                        </Button.ToolTip>
-                    </Button>
-                    <Button x:Name="muteSoundButton"
+                                </TextBlock>
+                            </StackPanel>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
+                <Button x:Name="muteSoundButton"
                     BorderBrush="White"
                     Foreground="White"
                     Background="Black"
@@ -162,18 +157,18 @@
                     Content="Mute"
                     Margin="10"
                     Click="muteSoundButton_Click">
-                        <Button.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock>
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock>
                                       <Label Content="Mute"/>
-                                    </TextBlock>
-                                </StackPanel>
-                            </ToolTip>
-                        </Button.ToolTip>
-                    </Button>
+                                </TextBlock>
+                            </StackPanel>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
 
-                    <Button x:Name="pauseSoundButton"
+                <Button x:Name="pauseSoundButton"
                     BorderBrush="White"
                     Foreground="White"
                     Background="Black"
@@ -182,21 +177,21 @@
                     Content="Pause"
                     Margin="10"
                     Click="pauseSoundButton_Click">
-                        <Button.ToolTip>
-                            <ToolTip>
-                                <StackPanel>
-                                    <TextBlock>
+                    <Button.ToolTip>
+                        <ToolTip>
+                            <StackPanel>
+                                <TextBlock>
                                       <Label Content="Pause"/>
-                                    </TextBlock>
-                                </StackPanel>
-                            </ToolTip>
-                        </Button.ToolTip>
-                    </Button>
+                                </TextBlock>
+                            </StackPanel>
+                        </ToolTip>
+                    </Button.ToolTip>
+                </Button>
 
-                </StackPanel>
-                <!--Slider Value-->
-                <StackPanel Orientation="Horizontal" Grid.Column="2" Width="294">
-                    <Slider Orientation="Horizontal"
+            </StackPanel>
+            <!--Slider Value-->
+            <StackPanel Orientation="Horizontal" Grid.Column="2" Width="204">
+                <Slider Orientation="Horizontal"
                         SmallChange="0.1" 
                         LargeChange="0.25" 
                         Minimum="0" 
@@ -206,14 +201,30 @@
                         VerticalAlignment="Center" Height="12" 
                               />
 
-                </StackPanel>
-                <Label Content="Volum"
+            </StackPanel>
+            <Label Content="Volum"
                        HorizontalAlignment="Right"
                        VerticalAlignment="Bottom"
                        Foreground="White" 
                        Margin="5,5,5,5"
                        Height="26" Width="43"/>
-            </WrapPanel>
-        </Grid>
+        </WrapPanel>
+
+        <StackPanel x:Name="st1" 
+                    Margin="2,18,8,8" 
+                    Grid.Row="3">
+
+            <ListBox x:Name="listBox1" 
+                          VerticalAlignment="Center"
+                          Foreground="White" 
+                          Background="Black"
+                          BorderBrush="Black" 
+                          Margin="0,0,0,0">
+
+            </ListBox>
+
+
+        </StackPanel>
     </Grid>
+
 </Window>

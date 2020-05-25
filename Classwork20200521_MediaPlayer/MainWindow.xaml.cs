@@ -15,6 +15,15 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 
+/*Кнопка: 
+ * пауза, 
+ * плей, 
+ * стоп, 
+ * звук вимкнути, 
+ * слайдером регулюємо звук. 
+ * Продумати перемотку(властивість position)
+ * Продумати плейлист*/
+
 namespace Classwork20200521_MediaPlayer
 {
     /// <summary>
@@ -26,11 +35,30 @@ namespace Classwork20200521_MediaPlayer
         {
             InitializeComponent();
 
+            DispatcherTimer timer = new DispatcherTimer();
+            timer.Interval = TimeSpan.FromSeconds(1);
+            timer.Tick += Timer_Tick; ;
+            timer.Start();
         }
 
+       
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            if (myMediaElement.Source != null && myMediaElement.NaturalDuration.HasTimeSpan)
+            {
+                SlTime.Minimum = 0;
+                SlTime.Value = myMediaElement.Position.TotalMinutes;
+                textBox1.Text =myMediaElement.Position.ToString();
+            }
+        }
+
+
+      
         private void openSoundButton_Click(object sender, RoutedEventArgs e)
         {
             OpenFileDialog of = new OpenFileDialog();
+
           
             if (of.ShowDialog() == true)
             {
@@ -38,9 +66,8 @@ namespace Classwork20200521_MediaPlayer
                 {
                     try
                     {
+                        listBox1.Items.Add(of.FileName);
                         myMediaElement.Source = new Uri(of.FileName);
-                        listBox1.Items.Add(of.FileName.ToString());
-                    
 
                     }
                     catch (Exception ex)
@@ -55,6 +82,9 @@ namespace Classwork20200521_MediaPlayer
         private void playSoundButton_Click(object sender, RoutedEventArgs e)
         {
             myMediaElement.Play();
+            TimeSpan time = new TimeSpan(0, 0, Convert.ToInt32(Math.Round(SlTime.Value))); //отлавливаем позицию на которую нужно перемотать трек
+            textBox1.Text = time.ToString();
+            myMediaElement.Position = time; //устанавливаем новую позицию для трека
         }
 
         private void stopSoundButton_Click(object sender, RoutedEventArgs e)
@@ -77,17 +107,21 @@ namespace Classwork20200521_MediaPlayer
             myMediaElement.Volume = 0;
         }
 
+
         private void SlTime_LostMouseCapture(object sender, MouseEventArgs e) //реализум возможность перемотки видео/аудио трека перетаскиванием ползунка слайдера. Срабатывает на момент отпускания клавиши мышки
         {
             TimeSpan time = new TimeSpan(0, 0, Convert.ToInt32(Math.Round(SlTime.Value))); //отлавливаем позицию на которую нужно перемотать трек
             textBox1.Text = time.ToString();
             myMediaElement.Position = time; //устанавливаем новую позицию для трека
-        }
 
+        }
+      
         private void MyMediaElement_MediaOpened(object sender, RoutedEventArgs e)
         {
             SlTime.Maximum = myMediaElement.NaturalDuration.TimeSpan.TotalSeconds; //устанавливаем максимальное значение для слайдера отвечающего за длинну проигрываемого ролика
+          
         }
+
 
         private void Expander_Collapsed(object sender, RoutedEventArgs e)
         {
@@ -99,6 +133,6 @@ namespace Classwork20200521_MediaPlayer
             myMediaElement.Pause();
         }
 
-      
+       
     }
 }
