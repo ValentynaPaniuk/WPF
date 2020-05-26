@@ -1,0 +1,15 @@
+D:\Шаг\WPF\Classwork20200526_Newspaper\bin\Debug\Classwork20200526_Newspaper.exe.config
+D:\Шаг\WPF\Classwork20200526_Newspaper\bin\Debug\Classwork20200526_Newspaper.exe
+D:\Шаг\WPF\Classwork20200526_Newspaper\bin\Debug\Classwork20200526_Newspaper.pdb
+D:\Шаг\WPF\Classwork20200526_Newspaper\obj\Debug\Classwork20200526_Newspaper.csprojAssemblyReference.cache
+D:\Шаг\WPF\Classwork20200526_Newspaper\obj\Debug\MainWindow.g.cs
+D:\Шаг\WPF\Classwork20200526_Newspaper\obj\Debug\App.g.cs
+D:\Шаг\WPF\Classwork20200526_Newspaper\obj\Debug\Classwork20200526_Newspaper_MarkupCompile.cache
+D:\Шаг\WPF\Classwork20200526_Newspaper\obj\Debug\Classwork20200526_Newspaper_MarkupCompile.lref
+D:\Шаг\WPF\Classwork20200526_Newspaper\obj\Debug\MainWindow.baml
+D:\Шаг\WPF\Classwork20200526_Newspaper\obj\Debug\Classwork20200526_Newspaper.g.resources
+D:\Шаг\WPF\Classwork20200526_Newspaper\obj\Debug\Classwork20200526_Newspaper.Properties.Resources.resources
+D:\Шаг\WPF\Classwork20200526_Newspaper\obj\Debug\Classwork20200526_Newspaper.csproj.GenerateResource.cache
+D:\Шаг\WPF\Classwork20200526_Newspaper\obj\Debug\Classwork20200526_Newspaper.csproj.CoreCompileInputs.cache
+D:\Шаг\WPF\Classwork20200526_Newspaper\obj\Debug\Classwork20200526_Newspaper.exe
+D:\Шаг\WPF\Classwork20200526_Newspaper\obj\Debug\Classwork20200526_Newspaper.pdb
