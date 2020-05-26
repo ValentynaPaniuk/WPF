@@ -5,39 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Classwork20200521_MediaPlayer"
         mc:Ignorable="d"
-        Title="MediaPlayer" Height="720" Width="870">
+        Title="MediaPlayer" Height="647" Width="780">
 
-    <Grid x:Name="grid1" Background="Black" Grid.ColumnSpan="2" Height="690" Width="850">
+    <Grid x:Name="grid1" Background="Black" Grid.ColumnSpan="2" Margin="6,14,6,0" Height="592" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="305*"></RowDefinition>
-            <RowDefinition Height="69*"></RowDefinition>
-            <RowDefinition Height="60*"></RowDefinition>
-            <RowDefinition Height="100*"></RowDefinition>
+            <RowDefinition Height="385*"></RowDefinition>
+            <RowDefinition Height="35*"></RowDefinition>
+            <RowDefinition Height="86*"></RowDefinition>
+            <RowDefinition Height="86*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <!--Mediaelement-->
         <MediaElement x:Name="myMediaElement"
                           LoadedBehavior="Manual"
-                          UnloadedBehavior="Manual" MediaOpened="MyMediaElement_MediaOpened" Margin="0,0,0,33" Grid.RowSpan="2"
-                      
-    
-                      
-                      />
+                          UnloadedBehavior="Manual" 
+                           MediaOpened="MyMediaElement_MediaOpened" 
+                            Margin="0,-10,0,10"
+                     
+                          />
 
         <!--Slider для прокрутки-->
-        <StackPanel Grid.Row="1"  Orientation="Horizontal" >
+        <StackPanel Grid.Row="1"  Orientation="Horizontal" Margin="0,0,0,0" >
             <TextBox x:Name="textBox1"
                          BorderBrush="Black"
                          Foreground="White"
                          Background="Black"
-                         Grid.Column="0"
-                         VerticalAlignment="Bottom">
+                     Margin="5,0,5,5"
+                         VerticalAlignment="Bottom" Height="40" Width="75">
             </TextBox>
             <Slider x:Name="SlTime"
-                        Margin="65,56,5,-3" 
+                        Margin="5,10,10,4" 
                         SmallChange="0.1" 
                         LargeChange="0.2" 
-                        Height="36" Width="684" 
+                        Height="36" Width="600" 
                         LostMouseCapture="SlTime_LostMouseCapture"
                  
                         />
@@ -196,9 +200,9 @@
                         LargeChange="0.25" 
                         Minimum="0" 
                         Maximum="1"
-                        Value="{Binding Volume, ElementName=myMediaElement}" Width="280"
+                        Value="{Binding Volume, ElementName=myMediaElement}" Width="194"
                         HorizontalAlignment="Center"
-                        VerticalAlignment="Center" Height="12" 
+                        VerticalAlignment="Center" Height="1" 
                               />
 
             </StackPanel>
@@ -211,9 +215,9 @@
         </WrapPanel>
 
         <StackPanel x:Name="st1" 
-                    Margin="2,18,8,8" 
+                    Margin="5,5,5,10" 
                     Grid.Row="3">
-
+            <TextBlock Foreground="White" Margin="5">PlayList:</TextBlock>
             <ListBox x:Name="listBox1" 
                           VerticalAlignment="Center"
                           Foreground="White" 

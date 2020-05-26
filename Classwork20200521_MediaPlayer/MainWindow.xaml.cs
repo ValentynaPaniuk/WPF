@@ -45,11 +45,14 @@ namespace Classwork20200521_MediaPlayer
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            if (myMediaElement.Source != null && myMediaElement.NaturalDuration.HasTimeSpan)
+            if (myMediaElement.Source != null)
             {
-                SlTime.Minimum = 0;
-                SlTime.Value = myMediaElement.Position.TotalMinutes;
-                textBox1.Text =myMediaElement.Position.ToString();
+                if (myMediaElement.NaturalDuration.HasTimeSpan)
+                {
+                    textBox1.Text = String.Format("{0} / {1}", myMediaElement.Position.ToString(@"mm\:ss"), myMediaElement.NaturalDuration.TimeSpan.ToString(@"mm\:ss"));
+                  
+                }
+
             }
         }
 
@@ -83,7 +86,6 @@ namespace Classwork20200521_MediaPlayer
         {
             myMediaElement.Play();
             TimeSpan time = new TimeSpan(0, 0, Convert.ToInt32(Math.Round(SlTime.Value))); //отлавливаем позицию на которую нужно перемотать трек
-            textBox1.Text = time.ToString();
             myMediaElement.Position = time; //устанавливаем новую позицию для трека
         }
 
