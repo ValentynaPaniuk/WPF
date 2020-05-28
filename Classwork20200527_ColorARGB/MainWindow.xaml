@@ -24,10 +24,10 @@
 
             </Grid.RowDefinitions>
 
-            <CheckBox x:Name="cb1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,10,36,11" Height="14" Width="16"/>
-            <CheckBox x:Name="cb2" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,11,36,10" Height="14" Width="16"/>
-            <CheckBox x:Name="cb3" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,11,36,11" Height="14" Width="16"/>
-            <CheckBox x:Name="cb4" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,10,36,11" Height="14" Width="16"/>
+            <CheckBox x:Name="cb1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,10,36,11" Height="14" Width="16" IsChecked="True"/>
+            <CheckBox x:Name="cb2" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,11,36,10" Height="14" Width="16" IsChecked="True"/>
+            <CheckBox x:Name="cb3" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,11,36,11" Height="14" Width="16" IsChecked="True"/>
+            <CheckBox x:Name="cb4" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,10,36,11" Height="14" Width="16" IsChecked="True"/>
 
             <Label Grid.Column="1" Grid.Row="0" Content="Alpha" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,4,0,5" Height="26" Width="41"/>
             <Label Grid.Column="1" Grid.Row="1" Content="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,5,0,4" Height="26" Width="41"/>
@@ -39,10 +39,10 @@
             <Label x:Name="green" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,5" Height="26" Width="41" Content="{Binding ElementName=slGreen, Path=Value, Mode=TwoWay}"></Label>
             <Label x:Name="blue" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,4,0,5" Height="26" Width="41" Content="{Binding ElementName=slBlue, Path=Value, Mode=TwoWay}"></Label>
 
-            <Slider x:Name="slAlpha" IsSnapToTickEnabled="True" Grid.Column="3" Grid.Row="0" Margin="10,10,10,10" Minimum="0" Maximum="255" SmallChange="1" LargeChange="1" LostMouseCapture="Change_Color" />
-            <Slider x:Name="slRed" IsSnapToTickEnabled="True" Grid.Column="3" Grid.Row="1" Margin="10,10,10,10" Minimum="0" Maximum="255" SmallChange="1" LargeChange="1" LostMouseCapture="Change_Color"/>
-            <Slider x:Name="slGreen" IsSnapToTickEnabled="True" Grid.Column="3" Grid.Row="2" Margin="10,10,10,10" Minimum="0" Maximum="255" SmallChange="1" LargeChange="1" LostMouseCapture="Change_Color"/>
-            <Slider x:Name="slBlue" IsSnapToTickEnabled="True" Grid.Column="3" Grid.Row="3" Margin="10,8,10,12" Minimum="0" Maximum="255" SmallChange="1" LargeChange="1" LostMouseCapture="Change_Color"/>
+            <Slider x:Name="slAlpha" IsSnapToTickEnabled="True" Grid.Column="3" Grid.Row="0" Margin="10,10,10,10" Minimum="0" Maximum="255" SmallChange="1" LargeChange="1" LostMouseCapture="Change_Color" IsEnabled="{Binding ElementName=cb1, Path=IsChecked}"/>
+            <Slider x:Name="slRed"   IsSnapToTickEnabled="True" Grid.Column="3" Grid.Row="1" Margin="10,10,10,10" Minimum="0" Maximum="255" SmallChange="1" LargeChange="1" LostMouseCapture="Change_Color" IsEnabled="{Binding ElementName=cb2, Path=IsChecked}"/>
+            <Slider x:Name="slGreen" IsSnapToTickEnabled="True" Grid.Column="3" Grid.Row="2" Margin="10,10,10,10" Minimum="0" Maximum="255" SmallChange="1" LargeChange="1" LostMouseCapture="Change_Color" IsEnabled="{Binding ElementName=cb3, Path=IsChecked}"/>
+            <Slider x:Name="slBlue"  IsSnapToTickEnabled="True" Grid.Column="3" Grid.Row="3" Margin="10,10,10,10" Minimum="0" Maximum="255" SmallChange="1" LargeChange="1" LostMouseCapture="Change_Color" IsEnabled="{Binding ElementName=cb1, Path=IsChecked}"/>
 
             <TextBlock x:Name="tbFont" Grid.Column="4" Grid.RowSpan="4" Background="Yellow"/>
 
@@ -51,7 +51,7 @@
         </Grid>
         
         <StackPanel Margin="0,235,27,34" HorizontalAlignment="Right" Width="740" >
-            <ListBox x:Name="listBox">
+            <ListBox x:Name="listBox" SelectedItem="{Binding SelectedColor, Mode=TwoWay}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal">

@@ -22,21 +22,17 @@ namespace Classwork20200527_ColorRGB
     public partial class MainWindow : Window
     {
         ObservableCollection<ColorNew> list = new ObservableCollection<ColorNew>();
+        ColorNew colorNew;
         public MainWindow()
         {
             InitializeComponent();
             listBox.ItemsSource = list;
-
-           
-
-
         }
-
-        ColorNew colorNew;
+       
+        //Змішування кольорів
         private void Change_Color(object sender, MouseEventArgs e)
         {
-           
-            byte aa = (byte)slAlpha.Value; //Retriving values from slider3
+            byte aa = (byte)slAlpha.Value; //Retriving values from slider4
             byte rr = (byte)slRed.Value; //Retriving values from slider1
             byte gg = (byte)slGreen.Value; //Retriving values from slider2
             byte bb = (byte)slBlue.Value; //Retriving values from slider3
@@ -46,38 +42,46 @@ namespace Classwork20200527_ColorRGB
             tbFont.Background = colorBrush; //Setting background of stack panel.
             colorNew = new ColorNew { Name = colorBrush.ToString(), FontName = tbFont.Background.ToString() };
 
+            //Перевірка включення кнопки Add
+           
+                bool checkExist = false;
 
+                for (int i = 0; i < list.Count; i++)
+                {
+                    if (tbFont.Background.ToString() == list[i].FontName)
+                    {
+                        btAdd.IsEnabled = false;
+                        checkExist = true;
+                    }
+                }
+
+                if (!checkExist)
+                    btAdd.IsEnabled = true;
+     
         }
 
+        //Add color in listBox
         private void Add_Color(object sender, RoutedEventArgs e)
         {
-            
             list.Add(colorNew);
+            btAdd.IsEnabled = false;
+
         }
 
+        //Delete selected color from listBox
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-            list.Remove(colorNew);
+            if (listBox.SelectedItems.Count == 0)
+            {
+                MessageBox.Show("Please, select color!");
+                return;
+            }
+           
+          list.RemoveAt(listBox.SelectedIndex);
         }
 
-     
+       
 
-        //if (cb1.IsChecked == true)
-        //    {
-        //        slAlpha.IsEnabled = false;
-        //    }
-        //    if (cb2.IsChecked == true)
-        //    {
-        //        slRed.IsEnabled = false;
-        //    }
-        //    if (cb3.IsChecked == true)
-        //    {
-        //        slGreen.IsEnabled = false;
-        //    }
-        //    if (cb4.IsChecked == true)
-        //    {
-        //        slBlue.IsEnabled = false;
-        //    }
 
     }
 }
