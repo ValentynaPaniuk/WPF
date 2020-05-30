@@ -1,0 +1,71 @@
+﻿<Window x:Class="Classwork20200527_ColorRGB.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Classwork20200527_ColorRGB"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid Margin="0,30,27,209">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="18*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="15*"/>
+                <ColumnDefinition Width="94*"/>
+                <ColumnDefinition Width="11*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="42*"/>
+                <RowDefinition Height="47*"/>
+
+            </Grid.RowDefinitions>
+
+            <CheckBox x:Name="cb1" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,10,36,11" Height="14" Width="16" IsChecked="True"/>
+            <CheckBox x:Name="cb2" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,11,36,10" Height="14" Width="16" IsChecked="True"/>
+            <CheckBox x:Name="cb3" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,11,36,11" Height="14" Width="16" IsChecked="True"/>
+            <CheckBox x:Name="cb4" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="38,10,36,11" Height="14" Width="16" IsChecked="True"/>
+
+            <Label Grid.Column="1" Grid.Row="0" Content="Alpha" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,4,0,5" Height="26" Width="41"/>
+            <Label Grid.Column="1" Grid.Row="1" Content="Red" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,5,0,4" Height="26" Width="41"/>
+            <Label Grid.Column="1" Grid.Row="2" Content="Green" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,5" Height="26" Width="41"/>
+            <Label Grid.Column="1" Grid.Row="3" Content="Blue" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,4,0,5" Height="26" Width="41"/>
+
+            <Label x:Name="alpha" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,4,0,5" Height="26" Width="41" Content="{Binding ElementName=slAlpha, Path=Value, Mode=TwoWay}"></Label>
+            <Label x:Name="red" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,5,0,4" Height="26" Width="41" Content="{Binding ElementName=slRed, Path=Value, Mode=TwoWay}"></Label>
+            <Label x:Name="green" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,5" Height="26" Width="41" Content="{Binding ElementName=slGreen, Path=Value, Mode=TwoWay}"></Label>
+            <Label x:Name="blue" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,4,0,5" Height="26" Width="41" Content="{Binding ElementName=slBlue, Path=Value, Mode=TwoWay}"></Label>
+
+            <Slider x:Name="slAlpha" IsSnapToTickEnabled="True" Grid.Column="3" Grid.Row="0" Margin="10,10,10,10" Minimum="0" Maximum="255" SmallChange="1" LargeChange="1" LostMouseCapture="Change_Color" IsEnabled="{Binding ElementName=cb1, Path=IsChecked}"/>
+            <Slider x:Name="slRed"   IsSnapToTickEnabled="True" Grid.Column="3" Grid.Row="1" Margin="10,10,10,10" Minimum="0" Maximum="255" SmallChange="1" LargeChange="1" LostMouseCapture="Change_Color" IsEnabled="{Binding ElementName=cb2, Path=IsChecked}"/>
+            <Slider x:Name="slGreen" IsSnapToTickEnabled="True" Grid.Column="3" Grid.Row="2" Margin="10,10,10,10" Minimum="0" Maximum="255" SmallChange="1" LargeChange="1" LostMouseCapture="Change_Color" IsEnabled="{Binding ElementName=cb3, Path=IsChecked}"/>
+            <Slider x:Name="slBlue"  IsSnapToTickEnabled="True" Grid.Column="3" Grid.Row="3" Margin="10,10,10,10" Minimum="0" Maximum="255" SmallChange="1" LargeChange="1" LostMouseCapture="Change_Color" IsEnabled="{Binding ElementName=cb1, Path=IsChecked}"/>
+
+            <TextBlock x:Name="tbFont" Grid.Column="4" Grid.RowSpan="4"/>
+
+            <Button x:Name="btAdd" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="100"  Content="Add" Margin="30,6,0,6" Click="Add_Color"/>
+
+        </Grid>
+        
+        <StackPanel Margin="0,235,27,34" HorizontalAlignment="Right" Width="740" >
+            <ListBox x:Name="listBox">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label x:Name="lbAdd" Content="{Binding Name}" Margin="5,5,5,5" />
+                            <TextBlock x:Name="tbAdd" Width="400" Height="20" Margin="5,5,5,5" Background="{Binding FontName}"/>
+                            <Button Width="80" Height="30"  Content="Delete" Click="Delete_Click"/>
+                        </StackPanel>
+                       
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+           
+        </StackPanel>
+    </Grid>
+    <!-- SelectedItem="{Binding SelectedColor, Mode=TwoWay}"-->
+
+</Window>
