@@ -23,7 +23,8 @@ namespace Classwork20200601_MVVM.ViewModel
 
         public ObservableCollection<City> Cities { get; set; } = new ObservableCollection<City>();
         public SearchCommand SearchCommand { get; set; }
-     
+        public OpenHttpLinkCommand OpenHttpLinkCommand { get; set; }
+
         private string query; //Text in textBox
 
         //Малюнок
@@ -38,7 +39,7 @@ namespace Classwork20200601_MVVM.ViewModel
             }
         }
 
-
+        //Рядок міста
         public string Query
         {
             get => query;
@@ -50,7 +51,7 @@ namespace Classwork20200601_MVVM.ViewModel
         }
 
        
-
+        //Погода
         private CurrentConditions currentConditions;
         public CurrentConditions CurrentConditions
         {
@@ -81,7 +82,8 @@ namespace Classwork20200601_MVVM.ViewModel
         {
             SearchCommand = new SearchCommand(this);
             Query = "";
-           
+            OpenHttpLinkCommand = new OpenHttpLinkCommand(this);
+
         }
 
       
@@ -112,8 +114,6 @@ namespace Classwork20200601_MVVM.ViewModel
                 CurrentConditions = await AccuWeatherHelper.GetCurrentConditions(SelectedCity.Key);
                 ImgUrl = $"../img/{CurrentConditions.WeatherIcon}.png";
 
-               // if ()
-                //OnOpenHttpLinkCommand();
             }
             else
             {
@@ -122,7 +122,7 @@ namespace Classwork20200601_MVVM.ViewModel
         }
 
         //Open httpLink
-        private void OnOpenHttpLinkCommand()
+        public void OnOpenHttpLinkCommand()
         {
             try
             {
@@ -134,12 +134,6 @@ namespace Classwork20200601_MVVM.ViewModel
             }
         }
 
-
-        //private void DG_Hyperlink_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Hyperlink link = (Hyperlink)e.OriginalSource;
-        //    Process.Start(link.NavigateUri.AbsoluteUri);
-        //}
 
     }
 }

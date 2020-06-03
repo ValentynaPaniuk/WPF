@@ -6,26 +6,26 @@
         xmlns:local="clr-namespace:Classwork20200601_MVVM.View"
         xmlns:vm="clr-namespace:Classwork20200601_MVVM.ViewModel"
         xmlns:converter="clr-namespace:Classwork20200601_MVVM.ViewModel.Converters"
+        
+        
         mc:Ignorable="d"
-        Title="WeatherWindow" Height="700" Width="700">
+        Title="WeatherWindow" Height="600" Width="700">
     <Window.Resources>
         <vm:WeatherVM x:Key="vm"/>
-        <converter:Convert_Precipitation_to_YesNone x:Key="convert"/>
+        <converter:Convert_Precipitation_to_YesNone x:Key="convert_Precipitation"/>
+        <converter:Convert_IsDayTime x:Key="converter_IsDayTime"/>
     </Window.Resources>
 
-   
-
-
+ 
     <Grid DataContext="{StaticResource vm}">
         
-
         <Grid.RowDefinitions>
+            <RowDefinition Height="50*"/>
             <RowDefinition Height="60*"/>
-            <RowDefinition Height="40*"/>
         </Grid.RowDefinitions>
         <StackPanel Margin="10" Background="LightBlue">
             <Label Content="Input City to find: "/>
-            <TextBox Height="40" Margin="10" Text="{Binding Query, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Height="40" Margin="10" Text="{Binding Query, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" FontSize="14"/>
             <Button Width="100" Margin="10" Command="{Binding SearchCommand}" CommandParameter="{Binding Query}">Search</Button>
             <ListBox Margin="5" ItemsSource="{Binding Cities}" SelectedItem="{Binding SelectedCity}"
                      >
@@ -42,17 +42,19 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Background="LightCoral">
             <TextBlock Text="{Binding SelectedCity.LocalizedName}" HorizontalAlignment="Center"/>
-            <Image Width="75" Height="40" Source="{Binding ImgUrl}" HorizontalAlignment="Center"/>
+            <Image Width="120" Height="70" Source="{Binding ImgUrl}" HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding CurrentConditions.Temperature.Metric.Value}" HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding CurrentConditions.WeatherText}" HorizontalAlignment="Center"/>
-            <TextBlock Text="{Binding CurrentConditions.HasPrecipitation, Converter={StaticResource convert}}" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding CurrentConditions.HasPrecipitation, Converter={StaticResource convert_Precipitation}}" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding CurrentConditions.PrecipitationType}" HorizontalAlignment="Center"/>
+            <TextBlock Text="{Binding CurrentConditions.IsDayTime, Converter={StaticResource converter_IsDayTime}}" HorizontalAlignment="Center"/>
             <!--<TextBlock Text="{Binding CurrentConditions.Link}"/>-->
 
-            <!--<TextBlock HorizontalAlignment="Center">
+            <TextBlock HorizontalAlignment="Center">
                <Hyperlink NavigateUri="{Binding Path}">
-                   <TextBlock Text="{Binding CurrentConditions.Link}" />
+                   <Button BorderBrush="Transparent" Background="Transparent" Command="{Binding OpenHttpLinkCommand}" CommandParameter="{Binding CurrentConditions.Link}" Content="{Binding CurrentConditions.Link}"/>
                </Hyperlink>
-            </TextBlock>-->
+            </TextBlock>
 
 
 
@@ -63,9 +65,9 @@
 
 <!--1. Конвертор чи є опади Test Precipitation (Не true, false - а які саме Presipitation Type)
         GeneralInfo -> Unit Types там де результат приходить Presipitation type
-    2. Linq
-    3. IsDayTime
-    4. Convertor on Icon - вивести іконку
+    2. Linq +
+    3. IsDayTime +
+    4. Convertor on Icon - вивести іконку +
  -->
     </Grid>
 </Window>
