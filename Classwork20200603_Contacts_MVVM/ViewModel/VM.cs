@@ -106,12 +106,12 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
           Contacts.Add(new Contact { Name = contact.Name, SurName = contact.SurName, Phone = contact.Phone} );            
         }
 
-        public void CleareContact()
+        public void CleareContact(Contact contact)
         {
 
-            Contact.Name = "";
-            Contact.SurName = "";
-            Contact.Phone = 1;
+            contact.Name = "";
+            contact.SurName = "";
+            contact.Phone = 0;
             
         }
 
