@@ -9,9 +9,7 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
     public class VM : INotifyPropertyChanged
     {
         public ObservableCollection<Contact> Contacts { get; set; } = new ObservableCollection<Contact>();
-        public Contact contact;
-        public Contact tempContact;
-
+       
         public Command_Add Command_Add { get; set; }
         public Command_Delete Command_Delete {get;set;}
         public Command_Cleare Command_Cleare { get; set; }
@@ -19,7 +17,7 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
         public Command_Save Command_Save { get; set; }
         public Command_Close Command_Close { get; set; }
 
-
+        public Contact contact;
         public Contact Contact
         {
             get => contact;
@@ -29,9 +27,19 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
                 OnNotify();
             }
         }
-                                 
 
-       
+        public Contact tempContact;
+        public Contact TempContact
+        {
+            get => tempContact;
+            set
+            {
+                tempContact = value;
+                OnNotify();
+            }
+        }
+
+
         private Contact selectedContact;
         public Contact SelectedContact
         {
@@ -80,6 +88,7 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
         public VM()
         {
             Contact = new Contact();
+            tempContact = new Contact();
             Command_Add = new Command_Add(this);
             Command_Delete = new Command_Delete(this);
             Command_Cleare = new Command_Cleare(this);
@@ -136,20 +145,20 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
             {
                 return;
             }
+            SelectedContact = TempContact;
+        }
+
+      
+
+        public void SaveContact(Contact tempContact)
+        {
             tempContact = SelectedContact;
-          
         }
 
         public void CloseContact()
         {
-            
+           
         }
-
-        public void SaveContact()
-        {
-
-        }
-
 
 
     }

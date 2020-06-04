@@ -42,9 +42,9 @@
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
-                        <Label Width="50" Content="{Binding Name}"/>
-                        <Label Width="50" Content="{Binding SurName}"/>
-                        <Label Width="50" Content="{Binding Phone}"/>
+                        <Label Width="50" Content="{Binding Name,    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Width="50" Content="{Binding SurName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label Width="50" Content="{Binding Phone,   Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <Button Style="{StaticResource LightSalmon}" Content="Edit"   Command="{Binding Command_Edit}"   CommandParameter="{Binding SelectedContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         <Button Style="{StaticResource LightSalmon}" Content="Delete" Command="{Binding Command_Delete}" CommandParameter="{Binding SelectedContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                     </StackPanel>
@@ -70,8 +70,8 @@
             <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding SelectedContact.Name}" IsEnabled="False"/>
             <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding SelectedContact.SurName}" IsEnabled="False"/>
             <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding SelectedContact.Phone}"/>
-            <Button Style ="{StaticResource LightSalmon}" Content="Save"/>
-            <Button Style="{StaticResource LightSalmon}" Content="Close" />
+            <Button Style ="{StaticResource LightSalmon}" Content="Save"  CommandParameter="{Binding TempContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <Button Style ="{StaticResource LightSalmon}" Content="Close" CommandParameter="{Binding TempContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
         </StackPanel>
 

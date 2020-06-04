@@ -51,8 +51,8 @@
             <!--<TextBlock Text="{Binding CurrentConditions.Link}"/>-->
 
             <TextBlock HorizontalAlignment="Center">
-               <Hyperlink NavigateUri="{Binding Path}">
-                   <Button BorderBrush="Transparent" Background="Transparent" Command="{Binding OpenHttpLinkCommand}" CommandParameter="{Binding CurrentConditions.Link}" Content="{Binding CurrentConditions.Link}"/>
+               <Hyperlink NavigateUri="{Binding Path}" Command="{Binding OpenHttpLinkCommand}" CommandParameter="{Binding CurrentConditions.Link}">
+                   <TextBlock  Text="{Binding CurrentConditions.Link}"/>
                </Hyperlink>
             </TextBlock>
 
@@ -68,6 +68,10 @@
     2. Linq +
     3. IsDayTime +
     4. Convertor on Icon - вивести іконку +
- -->
+ -->    
+        
+        <!--
+        
+        -->
     </Grid>
 </Window>
