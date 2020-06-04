@@ -41,7 +41,7 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel.Commands
 
         public void Execute(object parameter)
         {
-            VM.DeleteContact(VM.SelectedContact);
+            VM.DeleteContact();
         }
     }
 }

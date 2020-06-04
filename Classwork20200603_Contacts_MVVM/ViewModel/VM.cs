@@ -89,6 +89,7 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
         {
             Contact = new Contact();
             tempContact = new Contact();
+
             Command_Add = new Command_Add(this);
             Command_Delete = new Command_Delete(this);
             Command_Cleare = new Command_Cleare(this);
@@ -115,7 +116,7 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
           Contacts.Add(new Contact { Name = contact.Name, SurName = contact.SurName, Phone = contact.Phone} );            
         }
 
-        public void CleareContact(Contact contact)
+        public void CleareContact()
         {
 
             contact.Name = "";
@@ -126,20 +127,20 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
 
 
 
-        public void DeleteContact(Contact selectedContact)
+        public void DeleteContact()
         {
             if (Contacts.Count == 0)
             {
                 return;
             }
-
-            Contacts.Remove(selectedContact);
+            if (SelectedContact != null)
+                Contacts.Remove(SelectedContact);
            
         }
 
         
         
-        public void EditContact(Contact selectedContact)
+        public void EditContact()
         {
             if (Contacts.Count == 0)
             {
@@ -150,15 +151,26 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
 
       
 
-        public void SaveContact(Contact tempContact)
-        {
-            tempContact = SelectedContact;
+        public void SaveContact()
+        {   
+            if (TempContact.Phone != 0)
+               TempContact = SelectedContact;
         }
 
         public void CloseContact()
         {
+            Contacts.Clear();
+
+            TempContact.Name = "";
+            TempContact.SurName = "";
+            TempContact.Phone = 0;
            
         }
+
+
+
+       
+
 
 
     }

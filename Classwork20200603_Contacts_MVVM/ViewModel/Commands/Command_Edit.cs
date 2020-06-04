@@ -40,7 +40,7 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel.Commands
         public void Execute(object parameter)
         {
            // throw new NotImplementedException();
-            VM.EditContact(VM.SelectedContact);
+            VM.EditContact();
         }
     }
 }

@@ -42,7 +42,7 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel.Commands
         public void Execute(object parameter)
         {
             //throw new NotImplementedException();
-            VM.SaveContact(VM.TempContact);
+            VM.SaveContact();
         }
     }
 }
