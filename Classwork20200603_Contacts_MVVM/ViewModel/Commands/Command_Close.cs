@@ -11,11 +11,15 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel.Commands
     public class Command_Close : ICommand
     {
 
-        VM VM { get; set; }
+        public VM VM { get; set; }
 
         public Command_Close(VM vm)
         {
             VM = vm;
+        }
+        public Command_Close()
+        {
+
         }
 
         public event EventHandler CanExecuteChanged

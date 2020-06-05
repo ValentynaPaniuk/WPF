@@ -7,11 +7,16 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel.Commands
     public class Command_Add : ICommand
     {
 
-        VM VM { get; set; }
+       public VM VM { get; set; }
 
         public Command_Add(VM vm)
         {
             VM = vm;
+        }
+
+        public Command_Add()
+        {
+
         }
 
 

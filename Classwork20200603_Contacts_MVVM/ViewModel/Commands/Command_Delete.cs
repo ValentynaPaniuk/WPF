@@ -13,11 +13,15 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel.Commands
 
     public class Command_Delete : ICommand
     {
-        VM VM { get; set; }
+        public VM VM { get; set; }
 
         public Command_Delete(VM vm)
         {
             VM = vm;
+        }
+        public Command_Delete()
+        {
+
         }
 
         public event EventHandler CanExecuteChanged

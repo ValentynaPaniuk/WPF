@@ -14,3 +14,8 @@ D:\Шаг\WPF\Classwork20200603_Contacts_MVVM\obj\Debug\Classwork20200603_Contac
 D:\Шаг\WPF\Classwork20200603_Contacts_MVVM\obj\Debug\View\ContactsWindow.g.cs
 D:\Шаг\WPF\Classwork20200603_Contacts_MVVM\obj\Debug\View\ContactsWindow.baml
 D:\Шаг\WPF\Classwork20200603_Contacts_MVVM\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Шаг\WPF\Classwork20200603_Contacts_MVVM\obj\Debug\App.baml
+D:\Шаг\WPF\Classwork20200603_Contacts_MVVM\obj\Debug\Properties\en.baml
+D:\Шаг\WPF\Classwork20200603_Contacts_MVVM\obj\Debug\Properties\ua.baml
+D:\Шаг\WPF\Classwork20200603_Contacts_MVVM\obj\Debug\themes\dark.baml
+D:\Шаг\WPF\Classwork20200603_Contacts_MVVM\obj\Debug\themes\light.baml

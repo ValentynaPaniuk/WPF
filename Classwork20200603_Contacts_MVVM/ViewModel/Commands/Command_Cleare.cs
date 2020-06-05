@@ -10,11 +10,15 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel.Commands
 {
     public class Command_Cleare : ICommand
     {
-        VM VM { get; set; }
+        public VM VM { get; set; }
 
         public Command_Cleare(VM vm)
         {
             VM = vm;
+        }
+        public Command_Cleare()
+        {
+
         }
 
         public event EventHandler CanExecuteChanged

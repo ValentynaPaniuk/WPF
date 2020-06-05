@@ -10,13 +10,17 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel.Commands
 {
     public class Command_Edit : ICommand
     {
-        VM VM { get; set; }
+        public VM VM { get; set; }
 
         public Command_Edit(VM vm)
         {
             VM = vm;
         }
 
+        public Command_Edit()
+        {
+
+        }
 
         public event EventHandler CanExecuteChanged
         {

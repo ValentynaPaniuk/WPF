@@ -4,6 +4,15 @@
              xmlns:local="clr-namespace:Classwork20200603_Contacts_MVVM"
              StartupUri="View\ContactsWindow.xaml">
     <Application.Resources>
-         
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                
+                <ResourceDictionary Source="Properties/ua.xaml" />
+                
+                
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+        
     </Application.Resources>
 </Application>

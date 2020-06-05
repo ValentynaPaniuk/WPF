@@ -118,10 +118,8 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
 
         public void CleareContact()
         {
-
-            contact.Name = "";
-            contact.SurName = "";
-            contact.Phone = 0;
+            Contact = null;
+          
             
         }
 
@@ -146,7 +144,8 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
             {
                 return;
             }
-            SelectedContact = TempContact;
+            TempContact = SelectedContact;
+           
         }
 
       
@@ -154,16 +153,18 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
         public void SaveContact()
         {   
             if (TempContact.Phone != 0)
-               TempContact = SelectedContact;
+               SelectedContact = TempContact;
+            TempContact = null;
+           
+
         }
 
         public void CloseContact()
         {
+            Contact = null;
             Contacts.Clear();
-
-            TempContact.Name = "";
-            TempContact.SurName = "";
-            TempContact.Phone = 0;
+            TempContact = null;
+        
            
         }
 

@@ -11,13 +11,16 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel.Commands
     public class Command_Save : ICommand
     {
 
-        VM VM { get; set; }
+        public VM VM { get; set; }
 
         public Command_Save(VM vm)
         {
             VM = vm;
         }
+        public Command_Save()
+        {
 
+        }
 
 
         public event EventHandler CanExecuteChanged
