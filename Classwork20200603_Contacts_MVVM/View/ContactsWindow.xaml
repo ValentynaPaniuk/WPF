@@ -84,8 +84,8 @@
             <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding Contact.Name,     Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding Contact.SurName,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding Contact.Phone,    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button Style ="{StaticResource LightSalmon}" Content="Add"    Command="{Binding Command_Add}"    CommandParameter="{Binding Contact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-            <Button Style="{StaticResource LightSalmon}"  Content="Cleare" Command="{Binding Command_Cleare}" CommandParameter="{Binding Contact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            <Button x:Name="add"  Style ="{StaticResource LightSalmon}" Content="{DynamicResource add}"    Command="{Binding Command_Add}"    CommandParameter="{Binding Contact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <Button x:Name="cleare" Style="{StaticResource LightSalmon}"  Content="{DynamicResource cleare}" Command="{Binding Command_Cleare}" CommandParameter="{Binding Contact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
         </StackPanel>
 
@@ -95,8 +95,8 @@
             <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding SelectedContact.Name}" IsEnabled="False"/>
             <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding SelectedContact.SurName}" IsEnabled="False"/>
             <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding SelectedContact.Phone}"/>
-            <Button Style ="{StaticResource LightSalmon}" Content="Save" Command="{Binding Command_Save}"   CommandParameter="{Binding TempContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-            <Button Style ="{StaticResource LightSalmon}" Content="Close" Command="{Binding Command_Close}" CommandParameter="{Binding TempContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <Button x:Name="save" Style ="{StaticResource LightSalmon}" Content="{DynamicResource save}" Command="{Binding Command_Save}"   CommandParameter="{Binding TempContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <Button x:Name="close" Style ="{StaticResource LightSalmon}" Content="{DynamicResource close}" Command="{Binding Command_Close}" CommandParameter="{Binding TempContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
 
         </StackPanel>
 

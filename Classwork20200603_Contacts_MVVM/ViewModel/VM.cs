@@ -1,5 +1,6 @@
 ﻿using Classwork20200603_Contacts_MVVM.Mode;
 using Classwork20200603_Contacts_MVVM.ViewModel.Commands;
+using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -119,7 +120,7 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
         public void CleareContact()
         {
             Contact = null;
-          
+            Contact = new Contact();
             
         }
 
@@ -132,7 +133,10 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
                 return;
             }
             if (SelectedContact != null)
+            {
                 Contacts.Remove(SelectedContact);
+               
+            }
            
         }
 
@@ -145,17 +149,22 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
                 return;
             }
             TempContact = SelectedContact;
+          
            
         }
 
       
 
         public void SaveContact()
-        {   
+        {
             if (TempContact.Phone != 0)
-               SelectedContact = TempContact;
+            {
+                SelectedContact = TempContact;
+                SelectedContact = null;
+             
+            }
             TempContact = null;
-           
+            TempContact = new Contact();
 
         }
 
@@ -163,15 +172,10 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
         {
             Contact = null;
             Contacts.Clear();
-            TempContact = null;
+           TempContact = null;
         
            
         }
-
-
-
-       
-
 
 
     }

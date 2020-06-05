@@ -4,21 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Classwork20200605_Contacts_Pages"
+        xmlns:contr="clr-namespace:Classwork20200605_Contacts_Pages.Controls"
+        
+       
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+   
+     <Window.Resources>
+            <Style x:Key="LightSalmon" TargetType="Button">
+            <Setter Property="Width"   Value="100"/>
+            <Setter Property="Height"  Value="40"/>
+            <Setter Property="Margin"  Value="20"/>
+            <Setter Property="Padding" Value="5"/>
+            <Setter Property="Background" Value="LightSalmon" />
+        </Style>
+
+     </Window.Resources>
+    
+    
+    
+    
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             
         </Menu>
 
-        <StackPanel DockPanel.Dock="Left" Background="LightBlue">
-            <Button/>
-            <Button/>
-            <Button/>
+        <StackPanel Name="panel" Tag="{Binding Path=PathPage}" DockPanel.Dock="Left" Background="LightGreen" Width="200" ButtonBase.Click="ChoosePage_Click">
+            <Button Style="{StaticResource LightSalmon}" Tag="Pages/PageMain.xaml" Content="Main"/>
+            <Button Style="{StaticResource LightSalmon}" Tag="Pages/PageAbout.xaml" Content="About"/>
+            <Button Style="{StaticResource LightSalmon}" Tag="Pages/PageContact.xaml" Content="Contact"/>
         </StackPanel>
-        <Frame DockPanel.Dock="Right">
+        <Frame NavigationUIVisibility="Hidden" DockPanel.Dock="Right" Source="{Binding ElementName=panel, Path=Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             
         </Frame>
-        
-    </DockPanel>
+       
+
+    </DockPanel> 
+
+
+
+   
+
 </Window>

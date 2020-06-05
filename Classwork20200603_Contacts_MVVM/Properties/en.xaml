@@ -13,8 +13,11 @@
     <str:String x:Key="themes">Themes</str:String>
     <str:String x:Key="light">Light theme</str:String>
     <str:String x:Key="dark">Dark theme</str:String>
-    <!--<str:String x:Key="main">Main Page</str:String>
-    <str:String x:Key="about">About Page</str:String>
-    <str:String x:Key="contact">Contact Page</str:String>-->
+    <str:String x:Key="add">Add</str:String>
+    <str:String x:Key="save">Save</str:String>
+    <str:String x:Key="close">Close</str:String>
+    <str:String x:Key="cleare">Cleare</str:String>
+
+
 
 </ResourceDictionary>

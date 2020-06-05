@@ -13,6 +13,10 @@
     <str:String x:Key="themes">Теми</str:String>
     <str:String x:Key="light">Світла тема</str:String>
     <str:String x:Key="dark">Темна тема</str:String>
+    <str:String x:Key="add">Додати</str:String>
+    <str:String x:Key="save">Зберегти</str:String>
+    <str:String x:Key="close">Закрити</str:String>
+    <str:String x:Key="cleare">Почистити</str:String>
     <!--<str:String x:Key="main">Main Page</str:String>
     <str:String x:Key="about">About Page</str:String>
     <str:String x:Key="contact">Contact Page</str:String>-->
