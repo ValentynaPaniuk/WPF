@@ -52,39 +52,7 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
             }
         }
 
-        //private string name;
-        //public string Name
-        //{
-        //    get => name;
-        //    set
-        //    {
-        //        name = value;
-        //        OnNotify();
-        //    }
-        //}
-
-        //private string surName;
-        //public string SurName
-        //{
-        //    get => surName;
-        //    set
-        //    {
-        //        surName = value;
-        //        OnNotify();
-        //    }
-        //}
-
-        //private string phone;
-        //public string Phone
-        //{
-        //    get => phone;
-        //    set
-        //    {
-        //        phone = value;
-        //        OnNotify();
-        //    }
-        //}
-
+     
 
         public VM()
         {
@@ -126,15 +94,16 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
 
 
 
-        public void DeleteContact()
+        public void DeleteContact(int phone)
         {
             if (Contacts.Count == 0)
             {
                 return;
             }
-            if (SelectedContact != null)
+            if (SelectedContact != null && SelectedContact.Phone == phone)
             {
                 Contacts.Remove(SelectedContact);
+                Contact = new Contact();
                
             }
            
@@ -157,11 +126,10 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
 
         public void SaveContact()
         {
-            if (TempContact.Phone != 0)
+            if (TempContact.Phone !=0)
             {
                 SelectedContact = TempContact;
-                SelectedContact = null;
-             
+                        
             }
             TempContact = null;
             TempContact = new Contact();
@@ -170,11 +138,14 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
 
         public void CloseContact()
         {
-            Contact = null;
-            Contacts.Clear();
-           TempContact = null;
-        
-           
+            if (TempContact.Phone !=SelectedContact.Phone)
+            {
+                SelectedContact = SelectedContact;
+              
+            }
+            TempContact = null;
+            TempContact = new Contact();
+
         }
 
 

@@ -38,15 +38,15 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel.Commands
 
         public bool CanExecute(object parameter)
         {
-            if (parameter != null)
-                return !String.IsNullOrEmpty((parameter as Contact).Name);
+            //if (parameter != null)
+            //    return !String.IsNullOrEmpty((parameter as Contact).Phone);
             return true;
         }
 
         public void Execute(object parameter)
         {
-           
-            VM.DeleteContact();
+            int phoneParameter = (int)parameter; 
+            VM.DeleteContact(phoneParameter);
         }
     }
 }

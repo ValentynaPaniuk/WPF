@@ -31,7 +31,7 @@ namespace Classwork20200605_Contacts_Pages.Pages
         public PageContact()
         {
             InitializeComponent();
-            this.DataContext = Contacts; //На DataContext призначаємо контакти
+            lbContact.DataContext = Contacts; //На DataContext призначаємо контакти
         }
     }
 }

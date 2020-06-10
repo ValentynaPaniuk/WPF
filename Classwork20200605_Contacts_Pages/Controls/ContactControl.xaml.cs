@@ -36,6 +36,7 @@ namespace Classwork20200605_Contacts_Pages.Controls
         public ContactControl()
         {
             InitializeComponent();
+          
         }
 
 

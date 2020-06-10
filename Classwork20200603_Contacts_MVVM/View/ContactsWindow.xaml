@@ -18,8 +18,8 @@
         <command:Command_Delete x:Key="del" VM="{StaticResource VM}"/>
         <command:Command_Edit x:Key="edit" VM="{StaticResource VM}"/>
 
-        <Style x:Key="LightSalmon" TargetType="Button">
-            <Setter Property="Width"  Value="50"/>
+        <Style x:Key="LightSalmon" TargetType="Button">             
+            <Setter Property="Width"  Value="80"/>
             <Setter Property="Margin"  Value="5"/>
             <Setter Property="Padding"  Value="5"/>
             <Setter Property="Background" Value="LightSalmon" />
@@ -49,29 +49,29 @@
         </Grid.ColumnDefinitions>
 
         <DockPanel Grid.ColumnSpan="3">
-            <Menu DockPanel.Dock="Top">
+            <Menu Style="{DynamicResource MenuStyle}" DockPanel.Dock="Top">
                 <MenuItem x:Name="lang" Header="{DynamicResource lang}">
                     <MenuItem x:Name="en" Tag="en" Click="Lang_Click" IsCheckable="False"  Header="{DynamicResource en}"/>
-                    <MenuItem x:Name="ua" Tag="ua" Click="Lang_Click" IsChecked="True"  Header="{DynamicResource ua}"/>
+                    <MenuItem x:Name="ua" Tag="ua" Click="Lang_Click" IsChecked="True"     Header="{DynamicResource ua}"/>
                 </MenuItem>
                 
                 <MenuItem x:Name="themes" Header="{DynamicResource themes}">
-                    <MenuItem x:Name="light" Tag="0" Click="Light_Click" Header="{DynamicResource light}"/>
-                    <MenuItem x:Name="dark" Tag="1" Click="Light_Click" Header="{DynamicResource dark}"/>
+                    <MenuItem x:Name="light" Tag="0" Click="Light_Click" IsCheckable="True"  Header="{DynamicResource light}"/>
+                    <MenuItem x:Name="dark"  Tag="1" Click="Light_Click" IsCheckable="False" Header="{DynamicResource dark}"/>
                 </MenuItem>
                 
             </Menu>
         </DockPanel>
 
-        <ListBox Grid.Row="1" Background="LightBlue" Margin="10" ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedContact}" Grid.RowSpan="2">
-            <ListBox.ItemTemplate>
+        <ListBox x:Name="lbContacts" Style="{DynamicResource ListboxStyle}" Grid.Row="1" Margin="10" ItemsSource="{Binding Contacts}" SelectedItem="{Binding SelectedContact}" Grid.RowSpan="2">
+            <ListBox.ItemTemplate >
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
                         <Label Width="50" Content="{Binding Name,    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <Label Width="50" Content="{Binding SurName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <Label Width="50" Content="{Binding Phone,   Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <Button Style="{DynamicResource ButtonStyle}" Content="Edit"   Command="{StaticResource edit}"   CommandParameter="{Binding SelectedContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                        <Button Style="{StaticResource LightSalmon}" Content="Delete" Command="{StaticResource del}" CommandParameter="{Binding SelectedContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        <Button Style="{DynamicResource LightSalmon}" Content="Edit"   Command="{StaticResource edit}"   CommandParameter="{Binding SelectedContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        <Button Style="{DynamicResource LightSalmon}" Content="Delete" Command="{StaticResource del}" CommandParameter="{Binding Phone}"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
@@ -81,22 +81,22 @@
 
         <StackPanel Grid.Row="1" Background="LightCoral" Grid.Column="1" Margin="10" Grid.RowSpan="2">
 
-            <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding Contact.Name,     Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding Contact.SurName,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding Contact.Phone,    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <Button x:Name="add"  Style ="{StaticResource LightSalmon}" Content="{DynamicResource add}"    Command="{Binding Command_Add}"    CommandParameter="{Binding Contact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-            <Button x:Name="cleare" Style="{StaticResource LightSalmon}"  Content="{DynamicResource cleare}" Command="{Binding Command_Cleare}" CommandParameter="{Binding Contact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+            <TextBox Style="{DynamicResource LightSeaGreen}" Text="{Binding Contact.Name,     Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Style="{DynamicResource LightSeaGreen}" Text="{Binding Contact.SurName,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Style="{DynamicResource LightSeaGreen}" Text="{Binding Contact.Phone,    Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <Button x:Name="add"  Style ="{DynamicResource LightSalmon}" Content="{DynamicResource add}"      Command="{Binding Command_Add}"    CommandParameter="{Binding Contact, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"/>
+            <Button x:Name="cleare" Style="{DynamicResource LightSalmon}"  Content="{DynamicResource cleare}" Command="{Binding Command_Cleare}" CommandParameter="{Binding Contact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
         </StackPanel>
 
 
 
-        <StackPanel Grid.Row="1" Background="LightPink" Grid.Column="2" Margin="10" Visibility="Visible" Grid.RowSpan="2">
-            <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding SelectedContact.Name}" IsEnabled="False"/>
-            <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding SelectedContact.SurName}" IsEnabled="False"/>
-            <TextBox Style="{StaticResource LightSeaGreen}" Text="{Binding SelectedContact.Phone}"/>
-            <Button x:Name="save" Style ="{StaticResource LightSalmon}" Content="{DynamicResource save}" Command="{Binding Command_Save}"   CommandParameter="{Binding TempContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-            <Button x:Name="close" Style ="{StaticResource LightSalmon}" Content="{DynamicResource close}" Command="{Binding Command_Close}" CommandParameter="{Binding TempContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+        <StackPanel Grid.Row="1" Background="LightPink" Grid.Column="2" Margin="10" Visibility="{Binding }"  Grid.RowSpan="2">
+            <TextBox Style="{DynamicResource LightSeaGreen}" Text="{Binding SelectedContact.Name}" IsEnabled="False"/>
+            <TextBox Style="{DynamicResource LightSeaGreen}" Text="{Binding SelectedContact.SurName}" IsEnabled="False"/>
+            <TextBox Style="{DynamicResource LightSeaGreen}" Text="{Binding SelectedContact.Phone}"/>
+            <Button x:Name="save"  Style ="{DynamicResource LightSalmon}" Content="{DynamicResource save}"  Command="{Binding Command_Save}"   CommandParameter="{Binding TempContact, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+            <Button x:Name="close" Style ="{DynamicResource LightSalmon}" Content="{DynamicResource close}" Command="{Binding Command_Close}" CommandParameter="{Binding Phone}"/>
 
         </StackPanel>
 

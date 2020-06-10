@@ -1,0 +1,113 @@
+﻿<Window x:Class="Classwork20200608_Registration_Trigger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Classwork20200608_Registration_Trigger"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:vm="clr-namespace:Classwork20200608_Registration_Trigger.ViewMode"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="400">
+
+    <Window.Resources>
+        <vm:UserVM x:Key="vmUser"/>
+    </Window.Resources>
+    <StackPanel DataContext="{StaticResource vmUser}">
+        <!--Button Sign in-->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right"  >
+        <ToggleButton x:Name="tbLogin" Width="100" IsChecked="True"  Margin="10">
+            <ToggleButton.Content>
+                <StackPanel Orientation="Horizontal">
+                    <fa:FontAwesome Icon="SignIn" Foreground="Red" FontSize="24" />
+                    <TextBlock Margin="5">Sign In</TextBlock>
+                </StackPanel>
+            </ToggleButton.Content>
+        </ToggleButton>
+       
+        <!--Button Registration-->
+        <ToggleButton x:Name="tbRegistration" Width="100" IsChecked="True" Margin="10" Command="{Binding Command_Registration}">
+            <ToggleButton.Content>
+                <StackPanel Orientation="Horizontal">
+                    <fa:FontAwesome Icon="SignIn" Foreground="Red" FontSize="24" />
+                    <TextBlock Margin="5">Registration</TextBlock>
+                </StackPanel>
+            </ToggleButton.Content>
+        </ToggleButton>
+        </StackPanel>
+        <!--Stackpanel for Sing in-->
+        <StackPanel Width="300">
+            
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=tbLogin, Path=IsChecked}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+            <GroupBox Header="Login">
+                <TextBox Height="30"/>
+            </GroupBox>
+            <GroupBox Header="Password">
+                <TextBox Height="30"/>
+            </GroupBox>
+        </StackPanel>
+
+        <!--Stackpanel Registration-->
+        <StackPanel Width="300" DataContext="{Binding User}">
+            
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=tbRegistration, Path=IsChecked}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                      
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+            
+            <GroupBox Header="Name">
+                <StackPanel Orientation="Horizontal">
+                <TextBox Height="30" Width="130" Margin="0,0,10,0"/>
+                <TextBox Height="30" Width="130"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Header="Choose your username:">
+                <TextBox Height="30" Text="{Binding FirstName}"/>
+            </GroupBox>
+            <GroupBox Header="Login">
+                <TextBox Height="30" Text="{Binding LastName}"/>
+            </GroupBox>
+            <GroupBox Header="Create a password">
+                <TextBox Height="30" Text="{Binding Password}"/>
+            </GroupBox>
+            <GroupBox Header="Сonfirm your password">
+                <TextBox Height="30"/>
+            </GroupBox>
+            <GroupBox Header="Birthday:">
+                <DatePicker Text="{Binding Birthday}"/>
+            </GroupBox>
+            <GroupBox Header="Gender:">
+                <ComboBox Text="{Binding Gender}">
+                    <ComboBoxItem Content="Mail"/>
+                    <ComboBoxItem Content="Femail"/>
+                </ComboBox>
+            </GroupBox>
+            <GroupBox Header="Mobile phone:">
+                <TextBox Text="{Binding Phone}"/>
+            </GroupBox>
+            <GroupBox Header="Your current email address:">
+                <TextBox Text="{Binding Email}"/>
+            </GroupBox>
+            <Button Width="80" Content="Create User" Command="{Binding Command_Registration}" CommandParameter="{Binding User, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+        </StackPanel>
+        
+        <StackPanel Margin="20,20,20,20">
+            <Label Content="{Binding Answer}" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+
+    </StackPanel>
+</Window>

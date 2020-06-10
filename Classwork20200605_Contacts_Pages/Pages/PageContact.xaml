@@ -12,14 +12,20 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="PageContact">
 
-    <!--Students прив'язана до DataContext, тому тут прив'язуємо просто Binding--> 
-        <Grid>
-            <ListBox ItemsSource="{Binding}">
+    <!--Students прив'язана до DataContext, тому тут прив'язуємо просто Binding-->
+    <Grid>
+        <ListBox x:Name="lbContact"  ItemsSource="{Binding}">
+            <ListBox.ItemTemplate>            
                 <DataTemplate>
-                    <contr:ContactControl Contact ="{Binding}"/>
-                </DataTemplate>
-            </ListBox>
-        </Grid>
+               
+                    <StackPanel>
+                        <contr:ContactControl Contact="{Binding}"/>
+                    </StackPanel>
+            </DataTemplate>
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+    </Grid>
 
 
 </Page>

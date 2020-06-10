@@ -22,6 +22,8 @@ namespace Classwork20200603_Contacts_MVVM.View
         public ContactsWindow()
         {
             InitializeComponent();
+           
+            
         }
 
         private void Lang_Click(object sender, RoutedEventArgs e)
@@ -54,12 +56,26 @@ namespace Classwork20200603_Contacts_MVVM.View
             ResourceDictionary dictionary = new ResourceDictionary();
             dictionary.Source = new Uri("themes/" + themesArr[index] + ".xaml", UriKind.Relative);
             this.Resources.MergedDictionaries.Add(dictionary);
+
+            
         }
 
         private void Light_Click(object sender, RoutedEventArgs e)
         {
             int index = Convert.ToInt32((sender as MenuItem).Tag);
             ChangeThemes(index);
+
+            // доступаюсь до батькывського пункта меню
+            MenuItem header = (sender as MenuItem).Parent as MenuItem;
+            // перебираю всі підпункти в пункті Мова
+            foreach (var item in header.Items)
+            {
+                // знімаю галочки з усіх пунктів
+                (item as MenuItem).IsChecked = false;
+            }
+            // встановлюю галочку тільки в того пункта, по якому клікнула
+             (sender as MenuItem).IsChecked = !(sender as MenuItem).IsChecked;
+
         }
 
 

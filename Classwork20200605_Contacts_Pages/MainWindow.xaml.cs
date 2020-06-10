@@ -27,13 +27,18 @@ namespace Classwork20200605_Contacts_Pages
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new Prop();
-           
+         
+                this.DataContext = new Prop();
+            
+
+
+
         }
 
         private void ChoosePage_Click(object sender, RoutedEventArgs e)
         {
-           (DataContext as Prop).PathPage = (e.Source as Button).Tag.ToString();
+          
+            (DataContext as Prop).PathPage = (e.Source as Button).Tag.ToString();
         }
 
 

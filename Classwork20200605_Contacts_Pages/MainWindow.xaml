@@ -37,8 +37,11 @@
         <Frame NavigationUIVisibility="Hidden" DockPanel.Dock="Right" Source="{Binding ElementName=panel, Path=Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
             
         </Frame>
+
+        <!--Students прив'язана до DataContext, тому тут прив'язуємо просто Binding-->
        
 
+ 
     </DockPanel> 
 
 
