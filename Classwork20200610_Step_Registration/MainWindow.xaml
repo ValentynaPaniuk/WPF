@@ -1,0 +1,167 @@
+﻿<Window x:Class="Classwork20200610_Step_Registration.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Classwork20200610_Step_Registration"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="LightGray">
+    <Window.Resources>
+        <!--All for Button-->
+        <!--Шаблон елемента керування Кнопка-->
+        <ControlTemplate x:Key="tmlButton" TargetType="Button">
+            <!--Перевизначаємо: Тепер кнопка буде мати заокруглену рамку-->
+            <Border BorderBrush="{TemplateBinding BorderBrush}" 
+                    BorderThickness="{TemplateBinding BorderThickness}" 
+                    Background="{TemplateBinding Background}"
+                    
+                    CornerRadius="20"
+                                        >
+                <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">-->
+                   
+                    <!--ContentPresenter необхідний для відображення вмісту (контенту) елемента кнопка-->
+                    <!--TemplateBinding - особливий тип прив'язки, який забезпечує нам прив'язку до "самого себе"
+                    до певної властивості - дає можливість встановлювати задані властивості через стилі
+                    якщо не буде - не зможемо змінити вигляд елемента
+                    -->
+                    <ContentPresenter VerticalAlignment="Center"
+                                  Content="{TemplateBinding Content}"
+                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"            
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                
+                                  Margin="{TemplateBinding Padding}"/>
+
+                <!--</StackPanel>-->
+            </Border>
+        </ControlTemplate>
+        <!--Стиль для кнопки-->
+        <Style x:Key="btn" TargetType="Button">
+            <!--В якості шаблона назначаємо свій вище створений шаблон tmlButton-->
+            <Setter Property="Template" Value="{StaticResource tmlButton}"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="FontFamily" Value="Georgia"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="LightSeaGreen"/>
+            <Setter Property="BorderBrush" Value="LightSeaGreen"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <!--Описуємо поведінку стилів при натисненні, наведенні і т.д-->
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Foreground" Value="LightBlue"/>
+                    <Setter Property="BorderBrush" Value="LightBlue"/>
+                    <Setter Property="BorderThickness" Value="3"/>
+                    <Setter Property="Background" Value="Blue"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="BorderThickness" Value="2"/>
+                    <Setter Property="Background" Value="Pink"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        
+        <!--All for TextBox-->
+        <ControlTemplate  x:Key="txtName" TargetType="TextBox">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="1"  Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="0,20,20,0"
+                        Padding="10"
+                        
+                        BorderBrush="{TemplateBinding Background}">
+                    <fa:FontAwesome Foreground="Gray" Icon="Eye"  FontSize="24"/>
+                </Border>
+                
+                <Border Grid.Column="0" BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="20,0,0,20"
+                        Background="{TemplateBinding Background}"
+                      
+                        BorderBrush="{TemplateBinding Background}">
+                    <ContentPresenter Content="{TemplateBinding Text}"
+                                      Margin="10"
+                                      RecognizesAccessKey="True"
+                                      VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                      />
+                </Border>
+            </Grid>
+        </ControlTemplate>
+        
+        <Style x:Key="txt1" TargetType="TextBox">
+            <Setter Property="Template" Value="{StaticResource txtName}"/>
+            <Setter Property="FontFamily" Value="Georgia"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Padding" Value="10,10,10,10"/>
+            <Style.Triggers>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="Background" Value="LightBlue"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+        <!--All for TextBox-->
+        <ControlTemplate  x:Key="txtName2" TargetType="TextBox">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                   
+                </Grid.ColumnDefinitions>
+
+             
+                <Border Grid.Column="0" BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="20,20,20,20"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding Background}">
+                    <ContentPresenter Content="{TemplateBinding Text}"
+                                      Margin="10"
+                                      RecognizesAccessKey="True"
+                                      VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                      />
+                </Border>
+            </Grid>
+        </ControlTemplate>
+
+        <Style x:Key="txt2" TargetType="TextBox">
+            <Setter Property="Template" Value="{StaticResource txtName2}"/>
+            <Setter Property="FontFamily" Value="Georgia"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="White"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Padding" Value="10,10,10,10"/>
+            <Style.Triggers>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="Background" Value="LightBlue"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+
+
+
+
+
+
+    </Window.Resources>
+    
+    <StackPanel VerticalAlignment="Center" >
+        <TextBox Style="{StaticResource txt2}" Text="Name" Margin="10"/>
+        <TextBox Style="{StaticResource txt1}" Text="Surname" Margin="10"/>
+        <Button Style="{StaticResource btn}" Content="Enter"/>
+        <Label Content="Забули пароль" HorizontalAlignment="Center"/>
+
+    </StackPanel>
+</Window>
