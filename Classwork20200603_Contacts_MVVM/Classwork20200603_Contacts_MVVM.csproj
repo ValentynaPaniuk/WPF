@@ -61,6 +61,7 @@
     <Compile Include="ViewModel\Commands\Command_Delete.cs" />
     <Compile Include="ViewModel\Commands\Command_Edit.cs" />
     <Compile Include="ViewModel\Commands\Command_Save.cs" />
+    <Compile Include="ViewModel\Convertors\ConvertorVisible.cs" />
     <Compile Include="ViewModel\VM.cs" />
     <Compile Include="View\ContactsWindow.xaml.cs">
       <DependentUpon>ContactsWindow.xaml</DependentUpon>

@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Classwork20200603_Contacts_MVVM.View"
         xmlns:vm="clr-namespace:Classwork20200603_Contacts_MVVM.ViewModel"
         xmlns:command="clr-namespace:Classwork20200603_Contacts_MVVM.ViewModel.Commands"
+        xmlns:conv="clr-namespace:Classwork20200603_Contacts_MVVM.ViewModel.Convertors"       
         mc:Ignorable="d"
         Title="ContactsWindow" Height="392" Width="929"
         Style="{DynamicResource WindowStyle}"
@@ -17,6 +18,7 @@
         <vm:VM x:Key="VM"/>
         <command:Command_Delete x:Key="del" VM="{StaticResource VM}"/>
         <command:Command_Edit x:Key="edit" VM="{StaticResource VM}"/>
+        <conv:ConvertorVisible x:Key="conv"/>
 
         <Style x:Key="LightSalmon" TargetType="Button">             
             <Setter Property="Width"  Value="80"/>
@@ -79,7 +81,7 @@
 
 
 
-        <StackPanel Grid.Row="1" Background="LightCoral" Grid.Column="1" Margin="10" Grid.RowSpan="2">
+        <StackPanel Grid.Row="1" Background="LightCoral" Grid.Column="1" Margin="10" Grid.RowSpan="2" Visibility="{Binding VisibleCreated, Converter={StaticResource conv}}">
 
             <TextBox Style="{DynamicResource LightSeaGreen}" Text="{Binding Contact.Name,     Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
             <TextBox Style="{DynamicResource LightSeaGreen}" Text="{Binding Contact.SurName,  Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
@@ -91,7 +93,7 @@
 
 
 
-        <StackPanel Grid.Row="1" Background="LightPink" Grid.Column="2" Margin="10" Visibility="{Binding }"  Grid.RowSpan="2">
+        <StackPanel Grid.Row="1" Background="LightPink" Grid.Column="2" Margin="10" Grid.RowSpan="2" Visibility="{Binding VisibleEdit, Converter={StaticResource conv}}" >
             <TextBox Style="{DynamicResource LightSeaGreen}" Text="{Binding SelectedContact.Name}" IsEnabled="False"/>
             <TextBox Style="{DynamicResource LightSeaGreen}" Text="{Binding SelectedContact.SurName}" IsEnabled="False"/>
             <TextBox Style="{DynamicResource LightSeaGreen}" Text="{Binding SelectedContact.Phone}"/>

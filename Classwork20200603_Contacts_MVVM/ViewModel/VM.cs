@@ -18,6 +18,10 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
         public Command_Save Command_Save { get; set; }
         public Command_Close Command_Close { get; set; }
 
+
+        bool visibleEdit = false;
+        bool visibleCreate = true;
+
         public Contact contact;
         public Contact Contact
         {
@@ -52,7 +56,28 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
             }
         }
 
-     
+
+        public bool VisibleEdit
+        {
+            get => visibleEdit;
+            set
+            {
+                visibleEdit = value;
+                OnNotify();
+            }
+        }
+        public bool VisibleCreated
+        {
+            get => visibleCreate;
+            set
+            {
+                visibleCreate = value;
+                OnNotify();
+            }
+        }
+
+
+
 
         public VM()
         {
@@ -109,8 +134,8 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
            
         }
 
-        
-        
+     
+
         public void EditContact()
         {
             if (Contacts.Count == 0)
@@ -118,34 +143,42 @@ namespace Classwork20200603_Contacts_MVVM.ViewModel
                 return;
             }
             TempContact = SelectedContact;
-          
-           
+                                 
+            ChangeVisible();
+
+
         }
 
       
 
         public void SaveContact()
         {
-            if (TempContact.Phone !=0)
+            for (int i = 0; i < Contacts.Count; i++)
             {
-                SelectedContact = TempContact;
-                        
+                if (SelectedContact == Contacts[i])
+                    Contacts[i] = TempContact;
             }
-            TempContact = null;
-            TempContact = new Contact();
+            Contact = new Contact();
+            ChangeVisible();
 
         }
 
         public void CloseContact()
         {
-            if (TempContact.Phone !=SelectedContact.Phone)
+            for (int i = 0; i < Contacts.Count; i++)
             {
-                SelectedContact = SelectedContact;
-              
+                if (SelectedContact.Phone != TempContact.Phone)
+                    SelectedContact.Phone = Contacts[i].Phone;
             }
             TempContact = null;
-            TempContact = new Contact();
+            ChangeVisible();
 
+        }
+
+        private void ChangeVisible()
+        {
+            VisibleEdit = !VisibleEdit;
+            VisibleCreated = !VisibleCreated;
         }
 
 
