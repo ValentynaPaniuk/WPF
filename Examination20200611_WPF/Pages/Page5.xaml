@@ -8,7 +8,15 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page5">
 
-    <Grid>
-        <Button Width="100" Height="40" Content="5"/>
-    </Grid>
+
+    <StackPanel VerticalAlignment="Center">
+        <Label Content="COMMAND LINE INTERFACE" 
+               FontSize="20" FontWeight="Bold" 
+               VerticalContentAlignment="Center" 
+               HorizontalContentAlignment="Center" 
+               Foreground="White"/>
+        <TextBlock HorizontalAlignment="Center">
+            <Hyperlink Tag="https://en.wikipedia.org/wiki/Command-line_interface" Foreground="White" Click="Hyperlink_Click" MouseDown="Hyperlink_MouseDown">About</Hyperlink>
+        </TextBlock>
+    </StackPanel>
 </Page>

@@ -111,7 +111,7 @@ namespace Classwork20200608_Registration_Trigger.ViewMode
 
         public UserVM()
         {
-            User = new User();   
+            User = new User();
             Command_Regisration = new Command_Registration(this);
         }
 
@@ -124,13 +124,11 @@ namespace Classwork20200608_Registration_Trigger.ViewMode
 
         public void AddUsers()
         {
-            for (int i = 0; i<Users.Count; i++)
-            {
-             
-                    Users.Add(new User { FirstName = user.FirstName, LastName = user.LastName, Email = user.Email, Phone=user.Phone, Birthday = user.Birthday, Gender = user.Gender, Password = user.Password });
+            
+            Users.Add(new User { FirstName = User.FirstName, LastName = User.LastName, Email = User.Email, Phone=User.Phone, Birthday = User.Birthday, Gender = User.Gender, Password = User.Password });
                     Answer = "We have this User 1111";
-                    user = null;
-                    user = new User();
+                    //user = null;
+                    //user = new User();
                 
 
                 //else
@@ -140,9 +138,9 @@ namespace Classwork20200608_Registration_Trigger.ViewMode
 
             }
            
-        }
+     }
 
 
 
-    }
+    
 }

@@ -102,6 +102,23 @@
                 <TextBox Text="{Binding Email}"/>
             </GroupBox>
             <Button Width="80" Content="Create User" Command="{Binding Command_Registration}" CommandParameter="{Binding User, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+
+            <ListBox Margin="5" ItemsSource="{Binding Users}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <Label Foreground="Red" Content="{Binding User.FirstName}" />
+                            <Label Foreground="Red" Content="{Binding User.LastName}" />
+                            <Label Foreground="Red" Content="{Binding User.Password}" />
+                            <Label Foreground="Red" Content="{Binding User.Email}" />
+                            <Label Foreground="Red" Content="{Binding User.Birthday}" />
+                            <Label Foreground="Green" Content="{Binding User.Phone}" />
+                            <Label Foreground="Blue" Content="{Binding User.Gender}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
         </StackPanel>
         
         <StackPanel Margin="20,20,20,20">
@@ -109,5 +126,9 @@
         </StackPanel>
 
 
+    
+
     </StackPanel>
 </Window>
+
+

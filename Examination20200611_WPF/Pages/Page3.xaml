@@ -8,7 +8,14 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page3">
 
-    <Grid>
-        <Button Width="100" Height="40" Content="3"/>
-    </Grid>
+    <StackPanel VerticalAlignment="Center">
+        <Label Content="VISUAL STUDIO FOR MAC" 
+               FontSize="20" FontWeight="Bold" 
+               VerticalContentAlignment="Center" 
+               HorizontalContentAlignment="Center" 
+               Foreground="White"/>
+        <TextBlock HorizontalAlignment="Center">
+            <Hyperlink Tag="https://visualstudio.microsoft.com/ru/vs/mac/" Foreground="White" Click="Hyperlink_Click" MouseDown="Hyperlink_MouseDown">Download</Hyperlink>
+        </TextBlock>
+    </StackPanel>
 </Page>

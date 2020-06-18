@@ -343,57 +343,7 @@
             </Style.Triggers>
         </Style>
 
-
-
         <!--BUTTONS RIGHT-->
-<!--Right 0-->
-        <ControlTemplate x:Key="tmlRight0" TargetType="Button">
-            <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
-                                Background="{TemplateBinding Background}">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-
-                    <fa:ImageAwesome Icon="Braille"
-                                 Margin="10"
-                                 Foreground="White" Width="24"
-                                 />
-
-                    <ContentPresenter Grid.Row="1"
-                                  VerticalAlignment="Center"
-                                  Content="{TemplateBinding Content}"
-                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"            
-                                  ContentTemplate="{TemplateBinding ContentTemplate}"
-                                  Margin="{TemplateBinding Padding}"  />
-                </Grid>
-            </Border>
-        </ControlTemplate>
-
-        <Style x:Key="btnRight0" TargetType="Button">
-            <Setter Property="Template" Value="{StaticResource tmlRight0}"/>
-            <Setter Property="Height" Value="88"/>
-            <Setter Property="Background" Value="Gray"/>
-            <Setter Property="Foreground" Value="White"/>
-
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="LightBlue"/>
-                    <Setter Property="BorderBrush" Value="LightBlue"/>
-                    <Setter Property="BorderThickness" Value="3"/>
-                    <Setter Property="Background" Value="Blue"/>
-                </Trigger>
-                <Trigger Property="IsPressed" Value="True">
-                    <Setter Property="Foreground" Value="Black"/>
-                    <Setter Property="BorderBrush" Value="Black"/>
-                    <Setter Property="BorderThickness" Value="2"/>
-                    <Setter Property="Background" Value="Pink"/>
-                </Trigger>
-            </Style.Triggers>
-
-        </Style>
-
         <!--Right 1-->
         <ControlTemplate x:Key="tmlRight1" TargetType="Button">
             <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
@@ -403,11 +353,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-
-                    <fa:ImageAwesome Icon="Braille"
-                                 Margin="10"
-                                 Foreground="White" Width="24"
-                                 />
+                    <Image Source="img/visualStudioIcon.png" Margin="10" Width="24"/>
 
                     <ContentPresenter Grid.Row="1"
                                   VerticalAlignment="Center"
@@ -452,11 +398,9 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <fa:ImageAwesome Icon="Braille"
-                                 Margin="10"
-                                 Foreground="White" Width="24"
-                                 />
 
+                    <Image Source="img/VSMac.png" Width="30"/>
+               
                     <ContentPresenter Grid.Row="1"
                                   VerticalAlignment="Center"
                                   Content="{TemplateBinding Content}"
@@ -500,10 +444,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <fa:ImageAwesome Icon="Braille"
-                                 Margin="10"
-                                 Foreground="White" Width="24"
-                                 />
+                    <Image Source="img/code.png" Width="55"/>
 
                     <ContentPresenter Grid.Row="1"
                                   VerticalAlignment="Center"
@@ -548,10 +489,7 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <fa:ImageAwesome Icon="Braille"
-                                 Margin="10"
-                                 Foreground="White" Width="24"
-                                 />
+                    <Image Source="img/cpIcon.png" Width="30"/>
 
                     <ContentPresenter Grid.Row="1"
                                   VerticalAlignment="Center"
@@ -588,15 +526,16 @@
 
         <!--Button Botton-->
         <Style x:Key="btnBotton" TargetType="Button">
-            <Setter Property="Width" Value="100"/>
+            <Setter Property="Width" Value="120"/>
             <Setter Property="Height" Value="20"/>
             <Setter Property="Margin" Value="10"/>
-            <Setter Property="Background" Value="Gray"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+            <Setter Property="FontSize" Value="10"/>
         </Style>
     </Window.Resources>
 
-    
+
     <DockPanel>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -605,11 +544,12 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="165*"/>
-                <RowDefinition Height="152*"/>
-                <RowDefinition Height="92*"/>
+                <RowDefinition Height="40*"/>
+                <RowDefinition Height="125*"/>
+                <RowDefinition Height="79*"/>
             </Grid.RowDefinitions>
 
-            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
                 <Button Style="{StaticResource btnTop0}">
                     <StackPanel>
                         <Label Content="DESKTOP" Foreground="White" FontSize="8" HorizontalAlignment="Center"/>
@@ -656,43 +596,52 @@
                         <Label Content="Apache Spark" Foreground="White" FontSize="8" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
-
             </StackPanel>
 
-            <StackPanel Name="panel" Tag="{Binding Path=PathPage}" DockPanel.Dock="Right" Grid.RowSpan="3" Grid.Column="1"  Orientation="Vertical" ButtonBase.Click="ChoosePage_Click">
-                <Button Tag="Pages/Page1.xaml" Style="{StaticResource btnRight0}" Height="60" Content="TOOLS" FontWeight="Bold" Foreground="DarkGray"/>
+            <StackPanel Background="DarkGray" Name="panel" Tag="{Binding Path=PathPage}" Grid.RowSpan="4" Grid.Column="1"  Orientation="Vertical" ButtonBase.Click="ChoosePage_Click">
+                <Label  Height="60" Background="DarkGray" Content="TOOLS" FontWeight="Bold" Foreground="DarkSlateGray" HorizontalAlignment="Center" VerticalContentAlignment="Center"/>
                 <Button Tag="Pages/Page2.xaml" Style="{StaticResource btnRight1}" Background="LightGray">
                     <StackPanel>
-                        <Label Content="Visual Studio" Foreground="DarkGray" FontSize="8" HorizontalAlignment="Center"/>
+                        <Label Content="VISUAL STUDIO" Foreground="DarkSlateGray" FontSize="8" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
                 <Button Tag="Pages/Page3.xaml" Style="{StaticResource btnRight2}" Background="LightGray">
                     <StackPanel>
-                        <Label Content="Visual Studio for MAC" Foreground="DarkGray" FontSize="8" HorizontalAlignment="Center"/>
+                        <Label Content="VISUAL STUDIO FOR MAC" Foreground="DarkSlateGray" FontSize="8" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
                 <Button Tag="Pages/Page4.xaml" Style="{StaticResource btnRight3}" Background="LightGray">
                     <StackPanel>
-                        <Label Content="Visual Studio CODE" Foreground="DarkGray" FontSize="8" HorizontalAlignment="Center"/>
+                        <Label Content="VISUAL STUDIO CODE" Foreground="DarkSlateGray" FontSize="8" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
                 <Button Tag="Pages/Page5.xaml" Style="{StaticResource btnRight4}" Background="LightGray">
                     <StackPanel>
-                        <Label Content="COMMAND LINE INTERFACE" Foreground="DarkGray" FontSize="8" HorizontalAlignment="Center"/>
+                        <Label Content="COMMAND LINE INTERFACE" Foreground="DarkSlateGray" FontSize="8" HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Button>
             </StackPanel>
-
-
-            <Frame  NavigationUIVisibility="Hidden" DockPanel.Dock="Right" Grid.Row="1"  Background="Purple"
-                        Source="{Binding ElementName=panel, Path=Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-
-
-            <StackPanel DockPanel.Dock="Top" Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal">
-                <Button Style="{StaticResource btnBotton}"/>
-                <Button Style="{StaticResource btnBotton}"/>
-                <Button Style="{StaticResource btnBotton}"/>
+            <StackPanel Grid.Row="1" Background="DarkViolet">
+                <Label  Content=".NET STANDART" Background="DarkViolet" HorizontalAlignment="Center" Foreground="White"/>
             </StackPanel>
+
+            <Frame  NavigationUIVisibility="Hidden" 
+                      Grid.Row="2" 
+                      Background="BlueViolet"
+                      Source="{Binding ElementName=panel, Path=Tag, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" RenderTransformOrigin="0.5,0.319" 
+                      />
+
+
+            <StackPanel Grid.Row="3"  Background="DarkViolet">
+                <Label Content="INFRASTRUCTURE" HorizontalAlignment="Center" Foreground="White"/>
+                <StackPanel  Background="DarkViolet" Orientation="Horizontal">
+                    <Button Style="{StaticResource btnBotton}" Content="RUNTIME COMPONENTS"/>
+                    <Button Style="{StaticResource btnBotton}" Content="COMPILERS"/>
+                    <Button Style="{StaticResource btnBotton}" Content="LANGUAGES"/>
+                </StackPanel>
+
+            </StackPanel>
+            
 
         </Grid>
     </DockPanel>

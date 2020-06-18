@@ -16,12 +16,10 @@ D:\Шаг\WPF\Examination20200611_WPF\obj\Debug\Examination20200611_WPF.csproj.C
 D:\Шаг\WPF\Examination20200611_WPF\obj\Debug\Examination20200611_WPF.csproj.CopyComplete
 D:\Шаг\WPF\Examination20200611_WPF\obj\Debug\Examination20200611_WPF.exe
 D:\Шаг\WPF\Examination20200611_WPF\obj\Debug\Examination20200611_WPF.pdb
-D:\Шаг\WPF\Examination20200611_WPF\obj\Debug\Pages\Page1.g.cs
 D:\Шаг\WPF\Examination20200611_WPF\obj\Debug\Pages\Page2.g.cs
 D:\Шаг\WPF\Examination20200611_WPF\obj\Debug\Pages\Page3.g.cs
 D:\Шаг\WPF\Examination20200611_WPF\obj\Debug\Pages\Page4.g.cs
 D:\Шаг\WPF\Examination20200611_WPF\obj\Debug\Pages\Page5.g.cs
-D:\Шаг\WPF\Examination20200611_WPF\obj\Debug\Pages\Page1.baml
 D:\Шаг\WPF\Examination20200611_WPF\obj\Debug\Pages\Page2.baml
 D:\Шаг\WPF\Examination20200611_WPF\obj\Debug\Pages\Page3.baml
 D:\Шаг\WPF\Examination20200611_WPF\obj\Debug\Pages\Page4.baml
